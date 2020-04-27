@@ -9,7 +9,7 @@ const LoginForm = props => {
     const onSubmit = () => {
         //console.log(credentials)
         axiosWithAuth()
-            .post('', credentials)
+            .post('/api/auth/login', credentials)
             .then(res => {
                 // console.log('logging in', res)
                 window.localStorage.setItem('token', res.data.token)
