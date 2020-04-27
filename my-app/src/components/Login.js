@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 // import './index.css';
 
+import React from "react";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+
 const LogIn = () => {
   const [logInData, setLogInData] = useState({
     username: '',
