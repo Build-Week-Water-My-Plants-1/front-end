@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import axiosWithAuth from '../utils/axiosWithAuth'
+import { Route, NavLink, useHistory } from "react-router-dom";
+import {axiosWithAuth} from '../utils/axiosWithAuth'
 // import './index.css';
 
 const SignUp = () => {
@@ -8,26 +9,27 @@ const SignUp = () => {
     username: '',
     // password: '',
   })
+    const { push } = useHistory();
+
   const handleChanges = event => {
     setSignUpData({username: event.target.value})
-    console.log(signUpData)
+    //console.log(signUpData)
   }
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("/api/register", this.state.signUpData)
+      .post("/api/auth/register", signUpData)
       .then((res) => {
         console.log(res);
-        this.props.history.push("/");
+        push("/login");
       })
       .catch((err) => console.log({ err }));
   };
-};
+
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h4>Let's get started!</h4>
       <h3>Create your account</h3>
       <label htmlFor='username'>Username</label>
