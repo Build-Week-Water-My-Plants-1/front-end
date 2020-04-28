@@ -8,11 +8,13 @@ import styled from "styled-components";
 
 /////////////Styling/////////////////
 const WrapperDiv = styled.div`
-  width: 30%;
-  height: 70%;
+  width: 20%;
+  height: 80%;
+  padding: 2% 5% 5% 5%;
   background-color: #F1F3F2;
   display: flex;
   flex-direction: column;
+  font-family: 'Nunito Sans', sans-serif;
 `;
 
 const Form = styled.form`
@@ -21,9 +23,26 @@ const Form = styled.form`
   align-content: center;
 `;
 
+const H4 = styled.h4`
+font-family: 'Nunito Sans', sans-serif;
+font-weight: 600;
+margin: 0 0 10% 0;
+`;
+
+const Label = styled.label`
+text-align: left;
+font-weight: 300;
+font-size: .8rem;
+padding-top: 5%;
+`;
+
 const Button = styled.button`
+height: 2rem;
+font-size: .9rem;
 background-color: #235B2D;
 color: white;
+border-radius: 5%;
+margin-top: 15%;
 `;
 
 //////////SignUp function//////////////
@@ -31,12 +50,8 @@ color: white;
 const SignUp = () => {
   const [signUpData, setSignUpData] = useState({
     username: "",
-<<<<<<< HEAD
     phone_number: "",
-=======
->>>>>>> 284e2ba0a7a487cbb537f45eaeda1c0209c45571
     password: "",
-    phone_number: "",
   });
 
   const { push } = useHistory();
@@ -57,12 +72,14 @@ const SignUp = () => {
   };
 
   return (
-<<<<<<< HEAD
     <WrapperDiv>
       <Form onSubmit={handleSubmit}>
         <h4>Let's get started!</h4>
-        <h3>Create your account</h3>
-        <label htmlFor="username">Username</label>
+        
+        <H4>Create your account</H4>
+    
+        
+        <Label htmlFor="username">Username</Label>
         <input
           id="username"
           name="username"
@@ -71,7 +88,7 @@ const SignUp = () => {
           value={signUpData.username}
           onChange={handleChanges}
         />
-        <label htmlFor="phone_number">Phone Number</label>
+        <Label htmlFor="phone_number">Phone Number</Label>
         <input
           id="phone_number"
           name="phone_number"
@@ -80,7 +97,7 @@ const SignUp = () => {
           value={signUpData.phone_number}
           onChange={handleChanges}
         />
-        <label htmlFor="password">Password</label>
+        <Label htmlFor="password">Password</Label>
         <input
           id="password"
           name="password"
@@ -89,12 +106,11 @@ const SignUp = () => {
           value={signUpData.password}
           onChange={handleChanges}
         />
-        {/* <label htmlFor='confirmpw'>Confirm Password</label>
-=======
+        {/* <Label htmlFor='confirmpw'>Confirm Password</Label>
     <form onSubmit={handleSubmit}>
       <h4>Let's get started!</h4>
       <h3>Create your account</h3>
-      <label htmlFor="username">Username</label>
+      <Label htmlFor="username">Username</Label>
       <input
         id="username"
         name="username"
@@ -103,7 +119,7 @@ const SignUp = () => {
         value={signUpData.username}
         onChange={handleChanges}
       />
-      <label htmlFor="phone_number">Phone Number</label>
+      <Label htmlFor="phone_number">Phone Number</Label>
       <input
         id="phone_number"
         name="phone_number"
@@ -112,7 +128,7 @@ const SignUp = () => {
         value={signUpData.phone_number}
         onChange={handleChanges}
       />
-      <label htmlFor="password">Password</label>
+      <Label htmlFor="password">Password</Label>
       <input
         id="password"
         name="password"
@@ -121,8 +137,7 @@ const SignUp = () => {
         value={signUpData.password}
         onChange={handleChanges}
       />
-      {/* <label htmlFor='confirmpw'>Confirm Password</label>
->>>>>>> 284e2ba0a7a487cbb537f45eaeda1c0209c45571
+      {/* <Label htmlFor='confirmpw'>Confirm Password</Label>
       <input id='confirmpw'/> */}
         <Button type="submit">Next</Button>
       </Form>

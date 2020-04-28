@@ -9,7 +9,8 @@ const LoginForm = (props) => {
     console.log(logInData);
   };
 
-  const onSubmit = () => {
+  const onSubmit = (e) => {
+    e.preventDefault()
     axiosWithAuth()
       .post("/api/auth/login", logInData)
       .then((res) => {
