@@ -8,7 +8,8 @@ import {axiosWithAuth} from '../utils/axiosWithAuth'
 const SignUp = () => {
   const [signUpData, setSignUpData] = useState({
     username: '',
-    // password: '',
+    phonenumber: '',
+    password: '',
   })
   const handleChanges = event => {
     setSignUpData({username: event.target.value})
@@ -33,11 +34,11 @@ const SignUp = () => {
       <h4>Let's get started!</h4>
       <h3>Create your account</h3>
       <label htmlFor='username'>Username</label>
-      <input id='username' type='text' onChange={handleChanges}/>
+      <input id='username' name='username' type='text' placeholder='Username' value={signUpDate.username} onChange={handleChanges}/>
       <label htmlFor='phonenumber'>Phone Number</label>
-      <input id='phonenumber'/>
+      <input id='phonenumber' name='phonenumber' type='text' placeholder='PhoneNumber' value={signUpData.phonenumber}/>
       <label htmlFor='password'>Password</label>
-      <input id='password'/>
+      <input id='password' name='password' type='text' placeholder='Password' value={signUpData.password}/>
       <label htmlFor='confirmpw'>Confirm Password</label>
       <input id='confirmpw'/>
       <button type='submit'>Next</button>

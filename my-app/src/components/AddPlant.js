@@ -9,7 +9,7 @@ const AddPlant = () => {
   })
   const handleChanges = event => {
     setAddPlantData({plantname: event.target.value})
-    console.log(AddPlantData)
+    console.log(addPlantData)
   }
 
 
@@ -32,11 +32,21 @@ const AddPlant = () => {
       <label htmlFor='plantname'>Plant Name</label>
       <input id='plantname' type='text' onChange={handleChanges}/>
       <label htmlFor='maintenance'>Maintenance</label>
-      <input id='maintenance'/>
+      <select className="size-options" id="maintenance" name="size">
+            <option value="low" onChange={handleChanges}>
+              Low
+            </option>
+            <option value="medium" onChange={handleChanges}>
+              Medium
+            </option>
+            <option value="high" onChange={handleChanges}>
+              High
+            </option>
+          </select>
       <label htmlFor='species'>Species(optional)</label>
       <input id='species'/>
       <button type='submit'>Next</button>
-      <button tupe='skip'>Skip</button>
+      <button type='skip'>Skip</button>
     </form>
   )
 }
