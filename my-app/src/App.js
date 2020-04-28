@@ -6,18 +6,22 @@ import SignUp from "./components/Signup";
 import Header from "./components/Header";
 import { Route } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
+import AddPlant from "./components/AddPlant"
 
 function App() {
   return (
     <Router>
       <div className="App">
         {/* <Header /> */}
+        <AddPlant />
         <Route path="/login">
           <LogIn />
+          
         </Route>
         <SignUp />
       </div>
     </Router>
+
   );
 }
 
