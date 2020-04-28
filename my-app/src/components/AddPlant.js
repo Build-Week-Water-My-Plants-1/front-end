@@ -42,6 +42,11 @@ border-radius: 4px;
 margin-top: 15%;
 `;
 
+const SkipButton = styled.button`
+padding-top: 3%;
+width: 70px;
+`;
+
 
 ////////////////AddPlant function////////////////////
 const AddPlant = () => {
@@ -88,7 +93,7 @@ const AddPlant = () => {
       <Label htmlFor="species">Species(optional)</Label>
       <input id="species" name="species" type="text" placeholder="Species" value={addPlantData.species}/>
       <Button type="submit">Next</Button>
-      <button type="skip">Skip</button>
+      <SkipButton type="skip">Skip</SkipButton>
     </Form>
     </WrapperDiv>
     

@@ -61,7 +61,7 @@ const LoginForm = (props) => {
         // console.log('logging in', res)
         window.localStorage.setItem("token", res.data.token);
         setLogInData({ username: "", password: "" });
-        props.history.push("/login");
+        props.history.push("/add");
       })
       .catch((err) => console.log(err));
   };
