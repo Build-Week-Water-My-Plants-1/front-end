@@ -35,7 +35,7 @@ const LoginForm = (props) => {
       <label htmlFor="password">Password</label>
       <input id="password"
         name="password"
-        type="text"
+        type="password"
         placeholder="Password"
         value={logInData.password}
         onChange={handleChanges}/>
