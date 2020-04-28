@@ -37,8 +37,9 @@ const Button = styled.button`
 height: 2rem;
 font-size: .9rem;
 background-color: #235B2D;
+background: rgba(0.75);
 color: white;
-border-radius: 5%;
+border-radius: 4px;
 margin-top: 15%;
 `;
 

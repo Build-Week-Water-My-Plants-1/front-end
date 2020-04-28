@@ -8,6 +8,7 @@ const WrapperDiv = styled.div`
   height: 80%;
   padding: 2% 5% 5% 5%;
   background-color: #F1F3F2;
+  background: rgba(0.75);
   display: flex;
   flex-direction: column;
   font-family: 'Nunito Sans', sans-serif;
@@ -37,7 +38,7 @@ height: 2rem;
 font-size: .9rem;
 background-color: #235B2D;
 color: white;
-border-radius: 5%;
+border-radius: 4px;
 margin-top: 15%;
 `;
 
