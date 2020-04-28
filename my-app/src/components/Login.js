@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axiosWithAuth from '../utils/axiosWithAuth'
+import {axiosWithAuth} from '../utils/axiosWithAuth'
 
 const LoginForm = props => {
     const [logInData, setLogInData] = useState({ username: '', password: '' });
@@ -32,6 +32,6 @@ const LoginForm = props => {
           <button type='submit'>Next</button>
         </form>
       )
-}
+    }
 
 export default LoginForm;

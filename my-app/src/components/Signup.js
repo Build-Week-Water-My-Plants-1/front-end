@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import axiosWithAuth from '../utils/axiosWithAuth'
+import {axiosWithAuth} from '../utils/axiosWithAuth'
 // import './index.css';
 
 const SignUp = () => {
@@ -20,11 +20,11 @@ const SignUp = () => {
       .post("/api/register", this.state.signUpData)
       .then((res) => {
         console.log(res);
-        this.props.history.push("/");
+        this.props.history.push("/login");
       })
       .catch((err) => console.log({ err }));
   };
-};
+
 
   return (
     <form>

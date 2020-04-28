@@ -4,14 +4,20 @@ import "./App.css";
 import LogIn from "./components/Login";
 import SignUp from "./components/Signup";
 import Header from "./components/Header";
+import { Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      {/* <Header /> */}
-      <LogIn />
-      <SignUp />
-    </div>
+    <Router>
+      <div className="App">
+        {/* <Header /> */}
+        <Route path="/login">
+          <LogIn />
+        </Route>
+        <SignUp />
+      </div>
+    </Router>
   );
 }
 
