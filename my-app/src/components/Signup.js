@@ -16,7 +16,7 @@ const SignUp = () => {
   const { push } = useHistory();
   const handleChanges = (event) => {
     setSignUpData({ ...signUpData, [event.target.name]: event.target.value });
-    console.log(signUpData);
+    //console.log(signUpData);
   };
 
   const handleSubmit = (e) => {
@@ -24,7 +24,7 @@ const SignUp = () => {
     axiosWithAuth()
       .post("/api/auth/register", signUpData)
       .then((res) => {
-        console.log("sign up:", res);
+        //console.log("sign up:", res);
         push("/login");
       })
       .catch((err) => console.log({ err }));
