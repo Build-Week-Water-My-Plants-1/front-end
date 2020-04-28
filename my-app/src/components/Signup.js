@@ -25,7 +25,7 @@ const Form = styled.form`
 
 const H4 = styled.h4`
 font-family: 'Nunito Sans', sans-serif;
-font-weight: 600;
+font-weight: 400;
 margin: 0 0 10% 0;
 `;
 

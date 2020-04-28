@@ -1,6 +1,49 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import styled from "styled-components";
 
+
+/////////////Styling/////////////////
+const WrapperDiv = styled.div`
+  width: 20%;
+  height: 80%;
+  padding: 2% 5% 5% 5%;
+  background-color: #F1F3F2;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Nunito Sans', sans-serif;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+`;
+
+const H4 = styled.h4`
+font-family: 'Nunito Sans', sans-serif;
+font-weight: 400;
+margin: 0 0 10% 0;
+`;
+
+const Label = styled.label`
+text-align: left;
+font-weight: 300;
+font-size: .8rem;
+padding-top: 5%;
+`;
+
+const Button = styled.button`
+height: 2rem;
+font-size: .9rem;
+background-color: #235B2D;
+color: white;
+border-radius: 5%;
+margin-top: 15%;
+`;
+
+
+/////////////////////LoginForm function/////////////////
 const LoginForm = (props) => {
   const [logInData, setLogInData] = useState({ username: "", password: "" });
 
@@ -23,25 +66,28 @@ const LoginForm = (props) => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <WrapperDiv>
+<Form onSubmit={onSubmit}>
       <h4>Welcome back!</h4>
-      <h3>Log into your account</h3>
-      <label htmlFor="username">Username</label>
+      <H4>Log into your account</H4>
+      <Label htmlFor="username">Username</Label>
       <input         id="username"
         name="username"
         type="text"
         placeholder="Username"
         value={logInData.username}
         onChange={handleChanges}/>
-      <label htmlFor="password">Password</label>
+      <Label htmlFor="password">Password</Label>
       <input id="password"
         name="password"
         type="password"
         placeholder="Password"
         value={logInData.password}
         onChange={handleChanges}/>
-      <button type="submit">Next</button>
-    </form>
+      <Button type="submit">Next</Button>
+    </Form>
+    </WrapperDiv>
+    
   );
 };
 
