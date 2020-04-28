@@ -4,19 +4,20 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 const LoginForm = (props) => {
   const [logInData, setLogInData] = useState({ username: "", password: "" });
 
-  const handleChanges = (event) => {
-    setLogInData({ username: event.target.value });
-    console.log(logInData);
-  };
+    const handleChanges = (event) => {
+      setLogInData({ ...logInData, [event.target.name]: event.target.value });
+      // console.log(signUpData);
+    };
 
-  const onSubmit = () => {
+  const onSubmit = (e) => {
+    e.preventDefault()
     axiosWithAuth()
       .post("/api/auth/login", logInData)
       .then((res) => {
-        // console.log('logging in', res)
+        console.log('logging in', res)
         window.localStorage.setItem("token", res.data.token);
         setLogInData({ username: "", password: "" });
-        props.history.push("/dashboard");
+        props.history.push("/add");
       })
       .catch((err) => console.log(err));
   };
@@ -37,7 +38,9 @@ const LoginForm = (props) => {
         name="password"
         type="text"
         placeholder="Password"
-        value={logInData.password}/>
+        value={logInData.password}
+        onChange={handleChanges}/>
+        
       <button type="submit">Next</button>
     </form>
   );
