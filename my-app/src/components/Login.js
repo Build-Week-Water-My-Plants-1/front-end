@@ -26,9 +26,18 @@ const LoginForm = (props) => {
       <h4>Welcome back!</h4>
       <h3>Log into your account</h3>
       <label htmlFor="username">Username</label>
-      <input id="username" type="text" onChange={handleChanges} />
+      <input         id="username"
+        name="username"
+        type="text"
+        placeholder="Username"
+        value={logInData.username}
+        onChange={handleChanges}/>
       <label htmlFor="password">Password</label>
-      <input id="password" type="text" />
+      <input id="password"
+        name="password"
+        type="text"
+        placeholder="Password"
+        value={logInData.password}/>
       <button type="submit">Next</button>
     </form>
   );
