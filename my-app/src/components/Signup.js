@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import axiosWithAuth from '../utils/axiosWithAuth'
 // import './index.css';
 
 const SignUp = () => {
@@ -8,9 +9,22 @@ const SignUp = () => {
     // password: '',
   })
   const handleChanges = event => {
-setSignUpData({username: event.target.value})
-console.log(signUpData)
+    setSignUpData({username: event.target.value})
+    console.log(signUpData)
   }
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axiosWithAuth()
+      .post("/api/register", this.state.signUpData)
+      .then((res) => {
+        console.log(res);
+        this.props.history.push("/");
+      })
+      .catch((err) => console.log({ err }));
+  };
+};
 
   return (
     <form>
