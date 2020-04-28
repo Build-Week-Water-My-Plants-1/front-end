@@ -1,34 +1,37 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 // import './index.css';
 
 const SignUp = () => {
   const [signUpData, setSignUpData] = useState({
     username: "",
-    phonenumber: "",
     password: "",
+    phone_number: "",
   });
+
+  const { push } = useHistory();
   const handleChanges = (event) => {
-    setSignUpData({ username: event.target.value });
+    setSignUpData({ ...signUpData, [event.target.name]: event.target.value });
     console.log(signUpData);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("/api/register", this.state.signUpData)
+      .post("/api/auth/register", signUpData)
       .then((res) => {
-        console.log(res);
-        this.props.history.push("/login");
+        console.log("sign up:", res);
+        push("/login");
       })
       .catch((err) => console.log({ err }));
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h4>Let's get started!</h4>
       <h3>Create your account</h3>
       <label htmlFor="username">Username</label>
@@ -40,13 +43,14 @@ const SignUp = () => {
         value={signUpData.username}
         onChange={handleChanges}
       />
-      <label htmlFor="phonenumber">Phone Number</label>
+      <label htmlFor="phone_number">Phone Number</label>
       <input
-        id="phonenumber"
-        name="phonenumber"
+        id="phone_number"
+        name="phone_number"
         type="text"
         placeholder="PhoneNumber"
-        value={signUpData.phonenumber}
+        value={signUpData.phone_number}
+        onChange={handleChanges}
       />
       <label htmlFor="password">Password</label>
       <input
@@ -55,6 +59,7 @@ const SignUp = () => {
         type="text"
         placeholder="Password"
         value={signUpData.password}
+        onChange={handleChanges}
       />
       {/* <label htmlFor='confirmpw'>Confirm Password</label>
       <input id='confirmpw'/> */}
