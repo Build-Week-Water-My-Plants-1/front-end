@@ -5,7 +5,7 @@ const LoginForm = (props) => {
   const [logInData, setLogInData] = useState({ username: "", password: "" });
 
   const handleChanges = (event) => {
-    setLogInData({ username: event.target.value });
+    setLogInData({ ...logInData, [event.target.name]: event.target.value });
     console.log(logInData);
   };
 
@@ -37,7 +37,8 @@ const LoginForm = (props) => {
         name="password"
         type="text"
         placeholder="Password"
-        value={logInData.password}/>
+        value={logInData.password}
+        onChange={handleChanges}/>
       <button type="submit">Next</button>
     </form>
   );

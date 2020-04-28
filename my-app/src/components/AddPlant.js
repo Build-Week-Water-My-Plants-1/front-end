@@ -25,11 +25,11 @@ const AddPlant = () => {
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h4>Looking good!</h4>
       <h3>Now let's add your first plant.</h3>
       <label htmlFor="plantname">Plant Name</label>
-      <input id="plantname" name='plantname' type="text" placeholder='Plantname' value={addPlantData.plantname} onChange={handleChanges} />
+      <input id="plantname" name='plantname' type="text" placeholder='Plant Name' value={addPlantData.plantname} onChange={handleChanges} />
       <label htmlFor="maintenance">Maintenance</label>
       <select className="size-options" id="maintenance" name="size">
         <option value="low" onChange={handleChanges}>
