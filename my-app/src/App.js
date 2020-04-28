@@ -4,7 +4,10 @@ import "./App.css";
 import LogIn from "./components/Login";
 import SignUp from "./components/Signup";
 import Header from "./components/Header";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+
+import { Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+
 
 function App() {
   return (
@@ -13,7 +16,6 @@ function App() {
         {/* <Header /> */}
         <Route exact path="/" component={SignUp} />
         <Route path="/login" component={LogIn} />
-        {/* <SignUp /> */}
       </div>
     </Router>
   );
