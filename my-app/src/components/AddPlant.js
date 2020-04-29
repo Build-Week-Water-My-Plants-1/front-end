@@ -55,29 +55,27 @@ const AddPlant = (props) => {
   const [addPlantData, setAddPlantData] = useState({
     common_name: "",
     scientific_name: "",
-    h2o_frequency: "",
+    h2o_frequency: "1",
   });
   const { push } = useHistory();
 
   const handleChanges = (event) => {
+    event.persist();
+
     let value = event.target.value;
 
-    if (event.target.name === "size") {
-      if (value === "low") {
-        value = 1;
-      } else if (value === "medium") {
-        console.log("m!");
-        value = 2;
-      } else if (value === "high") {
-        console.log("hi!");
-        value = 3;
-      }
-    } else {
+    if (event.target.value === "low") {
+      value = "10";
       setAddPlantData({
         ...addPlantData,
-        [event.target.name]: value,
+        h2o_frequency: value,
       });
     }
+    setAddPlantData({
+      ...addPlantData,
+      [event.target.name]: value,
+    });
+
     console.log("addPlantData", addPlantData);
   };
 
