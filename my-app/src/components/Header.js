@@ -11,7 +11,7 @@ const Header = () => {
     <nav>
       <h1>Plant Parenthood</h1>
       <Link to='/'>Home</Link>
-      <Link to='#'>About</Link>
+      <Link to='/login'>About</Link>
       <button id='signup'>Sign Up</button>
       <button id='login'>Log In</button>
 

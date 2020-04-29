@@ -18,6 +18,6 @@ export const deletePant = (id) => {
   return { type: "DELETE_PLANT", payload: id };
 };
 
-export const plantUpdate = (task) => {
-  return { type: "UPDATE_PLANT", payload: task };
+export const getPlantID = (plantID) => {
+  return { type: "GET_PLANT_ID", plantID: plantID };
 };
