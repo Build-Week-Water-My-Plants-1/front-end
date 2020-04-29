@@ -1,10 +1,9 @@
-
-
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 export const fetchPlants = () => dispatch => {
     dispatch({ type: 'FETCHING_PLANTS' })
         axiosWithAuth()
+        .get(`/api/${id}/plants`)
             //make a .get request to recieve the plants that are added to display on the dashboard
 }
 

@@ -71,7 +71,7 @@ const SignUp = (props) => {
       .then((res) => {
         //console.log(res);
         //console.log(props.id)
-        // console.log(res.data.id);
+        console.log(res.data.id);
         props.getID(res.data.id);
         push("/login");
       })
