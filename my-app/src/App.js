@@ -7,18 +7,21 @@ import Header from "./components/Header";
 import { Route } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import AddPlant from "./components/AddPlant";
-import PrivateRoute from "./components/PrivateRoute"
-import PlantDashboard from "./components/PlantDashboard"
+
+import PrivateRoute from './components/PrivateRoute';
+import PlantDashboard from './components/PlantDashboard'
+
 
 function App() {
   return (
     <Router>
       <div className="App">
-        {/* <Header /> */}
-        <Route exact path ="/" component={SignUp} />
-        <Route path ="/login" component={LogIn} />
-        <PrivateRoute path ="/add" component={AddPlant} />
-        <Route exact path = "/dashboard" component={PlantDashboard}/>
+        <Header />
+        <Route exact path="/" component={SignUp} />
+        <Route path="/login" component={LogIn} />
+        <PrivateRoute path="/add" component={AddPlant} />
+        <PrivateRoute path="/dashboard" component= {PlantDashboard} />
+
       </div>
     </Router>
   );

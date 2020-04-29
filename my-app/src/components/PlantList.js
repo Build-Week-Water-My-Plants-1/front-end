@@ -1,18 +1,27 @@
-// import React, { useState, useEffect } from 'react'
-// import { axiosWithAuth } from '../utils/axiosWithAuth'
+import React from 'react'
+import { connect } from "react-redux";
+import { fetchPlants } from '../action'
 
-// const plantList = (() => {
-//     // const [plantList, setPlantList] = useState([]);
+ const PlantList = (props => {
+    // return (
+    //     {fetchPlants.map(plants => (
+    //         <div key = {plants.id}>
+    //             <h2>{plants.common_name}</h2>
+    //             <p>{plants.scientific_name}</p>
+    //             <p>{plants.h2o_frequency}</p>
+    //         </div>
+    //     ))}
+    // )
+ }
 
-//     useEffect(() => {
-//         axiosWithAuth()
-//         .get(`/api/${plantList.id}/plants`)
-//         .then( res => {
-//             setPlantList(res.data);
-//             console.log({setPlantList});
-//         })
-//         .catch(err => console.log(err))
-//     }, [])
-// })
+ const mapStateToProps = state => {
+     console.log("state:",state)
+     return {
+         plants: state.plants,
+     }
+ }
 
-// export default plantList();
+ export default connect(
+     mapStateToProps,
+     { fetchPlants }
+ ) (PlantList)

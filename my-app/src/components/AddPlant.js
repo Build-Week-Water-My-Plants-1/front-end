@@ -1,54 +1,156 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
-import {axiosWithAuth} from '../utils/axiosWithAuth'
 
-const AddPlant = () => {
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { useHistory } from "react-router-dom";
+import { connect } from "react-redux";
+
+
+////////////////AddPlant function////////////////////
+const AddPlant = (props) => {
   const [addPlantData, setAddPlantData] = useState({
-    plantname: "",
-    maintenance: "",
-    species: '',
+    common_name: "",
+    scientific_name: "",
+    h2o_frequency: "",
   });
+  const { push } = useHistory();
+
   const handleChanges = (event) => {
-    setAddPlantData({ plantname: event.target.value });
-    console.log(addPlantData);
+    let value = event.target.value;
+
+    if (event.target.name === "size") {
+      if (value === "low") {
+        value = 1;
+      } else if (value === "medium") {
+        console.log("m!");
+        value = 2;
+      } else if (value === "high") {
+        console.log("hi!");
+        value = 3;
+      }
+    } else {
+      setAddPlantData({
+        ...addPlantData,
+        [event.target.name]: value,
+      });
+    }
+    console.log("addPlantData", addPlantData);
+  };
+
+  const handleSkip = (e) => {
+    e.preventDefault();
+    push("/dashboard");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+
     axiosWithAuth()
-      .post(`/api/${e.id}/plants`, this.state.addPlantData)
+      .post(`/api/${props.id}/plants`, addPlantData)
       .then((res) => {
-        console.log(res);
-        // this.props.history.push("/login");
+        //console.log(res);
+        push("/dashboard");
       })
-      .catch((err) => console.log({ err }));
+      .catch((err) => console.log({ err, addPlantData }));
   };
 
+  /////////////Styling/////////////////
+const WrapperDiv = styled.div`
+width: 20%;
+height: 80%;
+padding: 2% 5% 5% 5%;
+background-color: #f1f3f2;
+background: rgba(0.75);
+display: flex;
+flex-direction: column;
+font-family: "Nunito Sans", sans-serif;
+`;
+
+const Form = styled.form`
+display: flex;
+flex-direction: column;
+align-content: center;
+`;
+
+const H4 = styled.h4`
+font-family: "Nunito Sans", sans-serif;
+font-weight: 400;
+margin: 0 0 10% 0;
+`;
+
+const Label = styled.label`
+text-align: left;
+font-weight: 300;
+font-size: 0.8rem;
+padding-top: 5%;
+`;
+
+const Button = styled.button`
+height: 2rem;
+font-size: 0.9rem;
+background-color: #235b2d;
+color: white;
+border-radius: 4px;
+margin-top: 15%;
+`;
+
+const SkipButton = styled.button`
+padding-top: 3%;
+width: 70px;
+`;
+
+
   return (
-    <form onSubmit ={handleSubmit}>
-      <h4>Looking good!</h4>
-      <h3>Now let's add your first plant.</h3>
-      <label htmlFor="plantname">Plant Name</label>
-      <input id="plantname" name='plantname' type="text" placeholder='Plantname' value={addPlantData.plantname} onChange={handleChanges} />
-      <label htmlFor="maintenance">Maintenance</label>
-      <select className="size-options" id="maintenance" name="size">
-        <option value="low" onChange={handleChanges}>
-          Low
-        </option>
-        <option value="medium" onChange={handleChanges}>
-          Medium
-        </option>
-        <option value="high" onChange={handleChanges}>
-          High
-        </option>
-      </select>
-      <label htmlFor="species">Species(optional)</label>
-      <input id="species" name="species" type="text" placeholder="Species" value={addPlantData.species}/>
-      <button type="submit">Next</button>
-      <button type="skip">Skip</button>
-    </form>
+    <WrapperDiv>
+      <Form>
+        <h4>Looking good!</h4>
+        <h3>Now let's add your first plant.</h3>
+        <Label htmlFor="common_name">Plant Name</Label>
+        <input
+          id="common_name"
+          name="common_name"
+          type="text"
+          placeholder="Plant Name"
+          value={addPlantData.common_name}
+          onChange={handleChanges}
+        />
+        <Label htmlFor="maintenance">Maintenance</Label>
+        <select
+          className="size-options"
+          id="maintenance"
+          name="size"
+          onChange={handleChanges}
+        >
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <Label htmlFor="species">Species(optional)</Label>
+        <input
+          id="scientific_name"
+          name="scientific_name"
+          type="text"
+          placeholder="Species"
+          value={addPlantData.scientific_name}
+          onChange={handleChanges}
+        />
+        <Button type="submit" onClick={handleSubmit}>
+          Next
+        </Button>
+        <SkipButton type="skip" onClick={handleSkip}>
+          Skip
+        </SkipButton>
+      </Form>
+    </WrapperDiv>
+
   );
 };
-
-export default AddPlant;
+const mapStateToProps = (state) => {
+  console.log("state:", state);
+  return {
+    id: state[0].id,
+  };
+};
+export default connect(mapStateToProps, {})(AddPlant);
