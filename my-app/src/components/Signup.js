@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { getID } from "../action/action";
+import { getID } from "../action";
 // import './index.css';
 
 /////////////Styling/////////////////
@@ -54,6 +54,7 @@ const SignUp = (props) => {
     phone_number: "",
     password: "",
   });
+
   const { push } = useHistory();
   const handleChanges = (event) => {
     setSignUpData({

@@ -46,6 +46,7 @@ const Button = styled.button`
 const LoginForm = (props) => {
   const [logInData, setLogInData] = useState({ username: "", password: "" });
 
+
   const handleChanges = (event) => {
     event.preventDefault();
     setLogInData({ ...logInData, [event.target.name]: event.target.value });
@@ -66,8 +67,11 @@ const LoginForm = (props) => {
   };
 
   return (
+
     <WrapperDiv>
+      
       <Form onSubmit={onSubmit}>
+      <div className='loginForm'>
         <h4>Welcome back!</h4>
         <H4>Log into your account</H4>
         <Label htmlFor="username">Username</Label>
@@ -89,8 +93,11 @@ const LoginForm = (props) => {
           onChange={handleChanges}
         />
         <Button type="submit">Next</Button>
+        </div>
       </Form>
+      
     </WrapperDiv>
+
   );
 };
 

@@ -7,7 +7,10 @@ import Header from "./components/Header";
 import { Route } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import AddPlant from "./components/AddPlant";
+
 import PrivateRoute from './components/PrivateRoute';
+import PlantDashboard from './components/PlantDashboard'
+
 
 function App() {
   return (
@@ -17,7 +20,8 @@ function App() {
         <Route exact path="/" component={SignUp} />
         <Route path="/login" component={LogIn} />
         <PrivateRoute path="/add" component={AddPlant} />
-        <PrivateRoute path="/dashboard" />
+        <PrivateRoute path="/dashboard" component= {PlantDashboard} />
+
       </div>
     </Router>
   );
