@@ -32,6 +32,7 @@ const Button = styled.button`
   font-family: "Nunito Sans", sans-serif;
   font-size: .8rem;
   border: none;
+  margin-right: 20px;
 `;
 
 const StyledLink = styled(Link)`
