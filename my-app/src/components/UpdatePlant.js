@@ -36,8 +36,9 @@ const UpdatePlate = (props) => {
     axiosWithAuth()
       .put(`/api/${props.id}/plants/${props.plantID}`, plant)
       .then((res) => {
-        props.setPlantList([...props.plantList], res.data);
-        //console.log(props.movieList);
+        props.setPlantList(...props.plantList, res.data);
+        // //console.log(props.movieList);
+        console.log("if working on put", res.data, props.plantList[0]);
         push("/dashboard");
       })
       .catch((err) => console.log(err));
@@ -49,7 +50,7 @@ const UpdatePlate = (props) => {
       <form>
         <input
           type="text"
-          name="name"
+          name="common_name"
           onChange={changeHandler}
           placeholder="name"
           value={plant.common_name}
@@ -57,7 +58,7 @@ const UpdatePlate = (props) => {
         <br />
         <input
           type="number"
-          name="frequency"
+          name="h2o_frequency"
           onChange={changeHandler}
           placeholder="frequency"
           value={plant.h2o_frequency}
