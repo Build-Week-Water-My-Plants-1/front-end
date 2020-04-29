@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-import ReactDOM from "react-dom";
 import styled from "styled-components";
-
+import { connect } from 'react-redux';
+import {getID} from '../action/action'
 // import './index.css';
 
-const SignUp = () => {
+const SignUp = (props) => {
+    console.log(props.id)
   const [signUpData, setSignUpData] = useState({
     username: "",
     password: "",
     phone_number: "",
   });
-
   const { push } = useHistory();
   const handleChanges = (event) => {
-    setSignUpData({ ...signUpData, [event.target.name]: event.target.value });
+    setSignUpData({
+      ...signUpData,
+      [event.target.name]: event.target.value,
+    });
     //console.log(signUpData);
   };
 
@@ -24,7 +27,10 @@ const SignUp = () => {
     axiosWithAuth()
       .post("/api/auth/register", signUpData)
       .then((res) => {
-        //console.log("sign up:", res);
+        //console.log(res);
+        //console.log(props.id)
+        console.log(res.data.id);
+        props.getID(res.data.id);
         push("/login");
       })
       .catch((err) => console.log({ err }));
@@ -67,5 +73,10 @@ const SignUp = () => {
     </form>
   );
 };
-
-export default SignUp;
+const mapStateToProps = state => {
+    console.log("map:",state[0].id);
+    return {
+        id:state[0].id,
+    }
+  }
+export default connect(mapStateToProps, {getID})(SignUp)

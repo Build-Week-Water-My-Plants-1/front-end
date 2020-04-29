@@ -3,18 +3,21 @@ import ReactDOM from "react-dom";
 import styled from "styled-components";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useParams } from "react-router-dom";
+import { connect } from "react-redux";
 
-const AddPlant = () => {
-  const { id } = useParams();
+const AddPlant = (props) => {
+  //const { id } = useParams();
+  // console.log(props)
+  // console.log(props.userID)
   const [addPlantData, setAddPlantData] = useState({
-    id: "",
     common_name: "",
     scientific_name: "",
+    h2o_frequency: "",
   });
   const handleChanges = (event) => {
     setAddPlantData({
       ...addPlantData,
-      id: 3,
+      h2o_frequency: 1.5,
       [event.target.name]: event.target.value,
     });
     console.log("addPlantData", addPlantData);
@@ -24,7 +27,7 @@ const AddPlant = () => {
     e.preventDefault();
 
     axiosWithAuth()
-      .post(`/api/3/plants`, addPlantData)
+      .post(`/api/${props.id}/plants`, addPlantData)
       .then((res) => {
         // setAddPlantData({
         //   id: parseInt(addPlantData.id) + 1,
@@ -74,5 +77,10 @@ const AddPlant = () => {
     </form>
   );
 };
-
-export default AddPlant;
+const mapStateToProps = (state) => {
+  console.log("state:", state);
+  return {
+    id: state[0].id,
+  };
+};
+export default connect(mapStateToProps, {})(AddPlant);

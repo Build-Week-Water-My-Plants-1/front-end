@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 const LoginForm = (props) => {
   const [logInData, setLogInData] = useState({ username: "", password: "" });
 
-//   const { push } = useHistory();
+  const { push } = useHistory();
 
   const handleChanges = (event) => {
     event.preventDefault();
@@ -18,12 +18,13 @@ const LoginForm = (props) => {
     axiosWithAuth()
       .post("/api/auth/login", logInData)
       .then((res) => {
+        console.log(res.data)
         window.localStorage.setItem("token", res.data.token);
         setLogInData({ username: "", password: "" });
-        this.props.push("/add");
-        // push('/add')
+        //this.props.push("/add");
+        push("/add");
       })
-      .catch((err) => console.log(err,logInData));
+      .catch((err) => console.log(err, logInData));
   };
 
   return (
