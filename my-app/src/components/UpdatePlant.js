@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { getPlantID, getID } from "../action/index";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { useHistory } from "react-router-dom";
 
 const initialItem = {
   common_name: "",
@@ -12,6 +13,7 @@ const initialItem = {
 const UpdatePlate = (props) => {
   // console.log(props.plantID)
   const [plant, setPlant] = useState(initialItem);
+  const { push } = useHistory();
 
   useEffect(() => {
     axiosWithAuth()
@@ -19,6 +21,28 @@ const UpdatePlate = (props) => {
       .then((res) => setPlant(res.data))
       .catch((err) => console.log(err));
   }, [props.plantID]);
+
+  const changeHandler = (ev) => {
+    ev.persist();
+    let value = ev.target.value;
+    setPlant({
+      ...plant,
+      [ev.target.name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axiosWithAuth()
+      .put(`/api/${props.id}/plants/${props.plantID}`, plant)
+      .then((res) => {
+        props.setPlantList([...props.plantList], res.data);
+        //console.log(props.movieList);
+        push("/dashboard");
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div>
       <h1>Update Plants</h1>
@@ -26,7 +50,7 @@ const UpdatePlate = (props) => {
         <input
           type="text"
           name="name"
-          //   onChange={changeHandler}
+          onChange={changeHandler}
           placeholder="name"
           value={plant.common_name}
         />
@@ -34,7 +58,7 @@ const UpdatePlate = (props) => {
         <input
           type="number"
           name="frequency"
-          //   onChange={changeHandler}
+          onChange={changeHandler}
           placeholder="frequency"
           value={plant.h2o_frequency}
         />
@@ -42,11 +66,12 @@ const UpdatePlate = (props) => {
         <input
           type="text"
           name="scientific_name"
-          //   onChange={changeHandler}
+          onChange={changeHandler}
           placeholder="scientific_name"
           value={plant.scientific_name}
         />
         <div className="baseline" />
+        <button onClick={handleSubmit}>Done</button>
       </form>
     </div>
   );
