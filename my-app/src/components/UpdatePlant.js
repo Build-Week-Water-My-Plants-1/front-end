@@ -37,8 +37,7 @@ const UpdatePlate = (props) => {
       .put(`/api/${props.id}/plants/${props.plantID}`, plant)
       .then((res) => {
         props.setPlantList(...props.plantList, res.data);
-        // //console.log(props.movieList);
-        console.log("if working on put", res.data, props.plantList[0]);
+        //console.log("if working on put", res.data, props.plantList[0]);
         push("/dashboard");
       })
       .catch((err) => console.log(err));

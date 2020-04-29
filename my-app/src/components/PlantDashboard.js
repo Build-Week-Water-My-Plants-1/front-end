@@ -26,7 +26,7 @@ const PlantDashBoard = (props) => {
     <div>
       <h1>Hello plants dashboard!</h1>
       {plant.map((p) => (
-        <PlantList plant={p} />
+        <PlantList plant={p} setPlantList={props.setPlantList} plantList={props.plantList}/>
       ))}
     </div>
   );
