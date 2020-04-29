@@ -103,10 +103,10 @@ const AddPlant = (props) => {
           value={addPlantData.common_name}
           onChange={handleChanges}
         />
-        <Label htmlFor="maintenance">Maintenance</Label>
+        <Label htmlFor="h2o_frequency">Maintenance</Label>
         <select
           className="size-options"
-          id="maintenance"
+          id="h2o_frequency"
           name="size"
           onChange={handleChanges}
         >
@@ -114,7 +114,7 @@ const AddPlant = (props) => {
           <option value="medium">Medium</option>
           <option value="high">High</option>
         </select>
-        <Label htmlFor="species">Species(optional)</Label>
+        <Label htmlFor="scientific_name">Species(optional)</Label>
         <input
           id="scientific_name"
           name="scientific_name"
