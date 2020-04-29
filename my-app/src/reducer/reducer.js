@@ -1,6 +1,7 @@
 export const initialState = [
   {
     id: 1,
+    plantID: "default",
   },
 ];
 
@@ -13,6 +14,9 @@ export const reducer = (state = initialState, action) => {
           id: action.id,
         },
       ];
+    case "GET_PLANT_ID":
+      console.log("suc!");
+      return { ...state, plantID: action.plantID };
 
     default:
       return state;
