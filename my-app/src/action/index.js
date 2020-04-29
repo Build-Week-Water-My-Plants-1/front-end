@@ -1,3 +1,4 @@
+
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 export const fetchPlants = () => (dispatch) => {
@@ -7,6 +8,7 @@ export const fetchPlants = () => (dispatch) => {
     .catch((err) => console.log(err));
   //make a .get request to recieve the plants that are added to display on the dashboard
 };
+
 
 export const getID = (id) => {
   return { type: "GET_ID", id: id };
