@@ -29,10 +29,10 @@ const PlantDashBoard = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log("map at plant list:", state[0]);
+  //console.log("map at plant list:", state);
   return {
     id: state[0].id,
-    plantID: state[0].plantID,
+    plantID: state.plantID,
   };
 };
 export default connect(mapStateToProps, { getID, getPlantID })(PlantDashBoard);
