@@ -64,13 +64,6 @@ const AddPlant = (props) => {
 
     let value = event.target.value;
 
-    if (event.target.value === "low") {
-      value = "10";
-      setAddPlantData({
-        ...addPlantData,
-        h2o_frequency: value,
-      });
-    }
     setAddPlantData({
       ...addPlantData,
       [event.target.name]: value,

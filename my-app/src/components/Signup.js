@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import styled from "styled-components";
-import { connect } from "react-redux";
-import { getID } from "../action/action";
+// import { connect } from "react-redux";
+// import { getID } from "../action";
 // import './index.css';
 
 /////////////Styling/////////////////
@@ -54,6 +54,7 @@ const SignUp = (props) => {
     phone_number: "",
     password: "",
   });
+
   const { push } = useHistory();
   const handleChanges = (event) => {
     setSignUpData({
@@ -70,8 +71,7 @@ const SignUp = (props) => {
       .then((res) => {
         //console.log(res);
         //console.log(props.id)
-        // console.log(res.data.id);
-        props.getID(res.data.id);
+        console.log("id",res.data.id);
         push("/login");
       })
       .catch((err) => console.log({ err }));
@@ -116,10 +116,10 @@ const SignUp = (props) => {
     </WrapperDiv>
   );
 };
-const mapStateToProps = (state) => {
-  //console.log("map:", state[0].id);
-  return {
-    id: state[0].id,
-  };
-};
-export default connect(mapStateToProps, { getID })(SignUp);
+// const mapStateToProps = (state) => {
+//   //console.log("map:", state[0].id);
+//   return {
+//     id: state[0].id,
+//   };
+// };
+export default SignUp;
