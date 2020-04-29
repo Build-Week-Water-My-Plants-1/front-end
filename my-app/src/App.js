@@ -10,6 +10,7 @@ import AddPlant from "./components/AddPlant";
 
 import PrivateRoute from './components/PrivateRoute';
 import PlantDashboard from './components/PlantDashboard'
+import UpdatePlate from "./components/UpdatePlant";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/" component={SignUp} />
         <Route path="/login" component={LogIn} />
         <PrivateRoute path="/add" component={AddPlant} />
+        <PrivateRoute path="/update" component={UpdatePlate} />
         <PrivateRoute path="/dashboard" component= {PlantDashboard} />
 
       </div>
