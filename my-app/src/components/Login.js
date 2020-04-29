@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { getID } from "../action";
 
 /////////////Styling/////////////////
 const WrapperDiv = styled.div`
@@ -46,7 +48,6 @@ const Button = styled.button`
 const LoginForm = (props) => {
   const [logInData, setLogInData] = useState({ username: "", password: "" });
 
-
   const handleChanges = (event) => {
     event.preventDefault();
     setLogInData({ ...logInData, [event.target.name]: event.target.value });
@@ -58,47 +59,49 @@ const LoginForm = (props) => {
     axiosWithAuth()
       .post("/api/auth/login", logInData)
       .then((res) => {
-        //console.log(res.data);
+        console.log(res.data);
         window.localStorage.setItem("token", res.data.token);
         setLogInData({ username: "", password: "" });
+        props.getID(res.data.id);
         props.history.push("/add");
       })
       .catch((err) => console.log(err, logInData));
   };
 
   return (
-
     <WrapperDiv>
-      
       <Form onSubmit={onSubmit}>
-      <div className='loginForm'>
-        <h4>Welcome back!</h4>
-        <H4>Log into your account</H4>
-        <Label htmlFor="username">Username</Label>
-        <input
-          id="username"
-          name="username"
-          type="text"
-          placeholder="Username"
-          value={logInData.username}
-          onChange={handleChanges}
-        />
-        <Label htmlFor="password">Password</Label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={logInData.password}
-          onChange={handleChanges}
-        />
-        <Button type="submit">Next</Button>
+        <div className="loginForm">
+          <h4>Welcome back!</h4>
+          <H4>Log into your account</H4>
+          <Label htmlFor="username">Username</Label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            placeholder="Username"
+            value={logInData.username}
+            onChange={handleChanges}
+          />
+          <Label htmlFor="password">Password</Label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={logInData.password}
+            onChange={handleChanges}
+          />
+          <Button type="submit">Next</Button>
         </div>
       </Form>
-      
     </WrapperDiv>
-
   );
 };
-
-export default LoginForm;
+const mapStateToProps = (state) => {
+  console.log("map:", state[0].id);
+  return {
+    id: state[0].id,
+  };
+};
+export default connect(mapStateToProps, { getID })(LoginForm);

@@ -1,27 +1,22 @@
-import React from 'react'
+import React from "react";
+// import { fetchPlants } from "../action";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { connect } from "react-redux";
-import { fetchPlants } from '../action'
+import { getID } from "../action";
 
- const PlantList = (props => {
-    // return (
-    //     {fetchPlants.map(plants => (
-    //         <div key = {plants.id}>
-    //             <h2>{plants.common_name}</h2>
-    //             <p>{plants.scientific_name}</p>
-    //             <p>{plants.h2o_frequency}</p>
-    //         </div>
-    //     ))}
-    // )
- }
+const PlantList = (props) => {
+  axiosWithAuth()
+    .get(`/api/${props.id}/plants`)
+    .then((res) => console.log("res from get", res))
+    .catch((err) => console.log(err));
+  return <h1>hello</h1>;
+};
 
- const mapStateToProps = state => {
-     console.log("state:",state)
-     return {
-         plants: state.plants,
-     }
- }
 
- export default connect(
-     mapStateToProps,
-     { fetchPlants }
- ) (PlantList)
+const mapStateToProps = (state) => {
+  console.log("map at plant list:", state[0].id);
+  return {
+    id: state[0].id,
+  };
+};
+export default connect(mapStateToProps, { getID })(PlantList);
