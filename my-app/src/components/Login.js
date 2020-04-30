@@ -45,13 +45,11 @@ const Label = styled.label`
 const Button = styled.button`
   height: 2rem;
   font-size: 0.9rem;
-  background-image: ;
+  background-image: img;
   background: rgba(0.75);
-  color: white;
+  color: black;
   margin-right: 20px;
 `;
-
-
 
 /////////////////////LoginForm function/////////////////
 const LoginForm = (props) => {
@@ -72,45 +70,42 @@ const LoginForm = (props) => {
         window.localStorage.setItem("token", res.data.token);
         setLogInData({ username: "", password: "" });
         props.getID(res.data.id);
+        console.log("user id in login", res.data.id);
         props.history.push("/add");
       })
       .catch((err) => console.log(err, logInData));
   };
 
   return (
-
     <ContentDiv>
       <WrapperDiv>
         <Form onSubmit={onSubmit}>
-
-        <div className="loginForm">
-
-          <h4>Welcome back!</h4>
-          <H4>Log into your account</H4>
-          <Label htmlFor="username">Username</Label>
-          <input
-            id="username"
-            name="username"
-            type="text"
-            placeholder="Username"
-            value={logInData.username}
-            onChange={handleChanges}
-          />
-          <Label htmlFor="password">Password</Label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            placeholder="Password"
-            value={logInData.password}
-            onChange={handleChanges}
-          />
-          <Button type="submit">Next</Button>
+          <div className="loginForm">
+            <h4>Welcome back!</h4>
+            <H4>Log into your account</H4>
+            <Label htmlFor="username">Username</Label>
+            <input
+              id="username"
+              name="username"
+              type="text"
+              placeholder="Username"
+              value={logInData.username}
+              onChange={handleChanges}
+            />
+            <Label htmlFor="password">Password</Label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Password"
+              value={logInData.password}
+              onChange={handleChanges}
+            />
+            <Button type="submit">Next</Button>
           </div>
         </Form>
       </WrapperDiv>
     </ContentDiv>
-        
   );
 };
 const mapStateToProps = (state) => {

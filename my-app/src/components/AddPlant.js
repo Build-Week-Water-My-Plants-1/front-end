@@ -56,7 +56,7 @@ const AddPlant = (props) => {
   const [addPlantData, setAddPlantData] = useState({
     common_name: "",
     scientific_name: "",
-    h2o_frequency: "1",
+    h2o_frequency: "",
   });
   const { push } = useHistory();
 
@@ -108,12 +108,12 @@ const AddPlant = (props) => {
         <select
           className="size-options"
           id="h2o_frequency"
-          name="size"
+          name="h2o_frequency"
           onChange={handleChanges}
         >
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
         </select>
         <Label htmlFor="scientific_name">Species(optional)</Label>
         <input
