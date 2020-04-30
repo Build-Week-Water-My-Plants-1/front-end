@@ -18,14 +18,13 @@ import {
   CardOptions,
   CardOptionsNote,
   CardButton,
-  CardLink
+  CardLink,
 } from "./Card";
-import Button from './Header'
+import Button from "./Header";
 
 const PlantList = (props) => {
-
   const { push } = useHistory();
-  
+
   const handleSubmit = () => {
     props.getPlantID(props.plant.id);
     push("./update");
@@ -58,25 +57,18 @@ const PlantList = (props) => {
   //DASHBOARD STYLING
 
   return (
-    <div>
+    <div className="cards-container">
       <CardWrapper>
         <h2>{props.plant.common_name}</h2>
-        
         <CardBody>-Maintenance-</CardBody> <h2>{props.plant.h2o_frequency}</h2>
-        
-         <CardBody>-Species-</CardBody> <h2>{props.plant.scientific_name}</h2>
-        
-        <CardButton onClick={handleSubmit}>Edit
-        </CardButton>
+        <CardBody>-Species-</CardBody> <h2>{props.plant.scientific_name}</h2>
+        <CardButton onClick={handleSubmit}>Edit</CardButton>
         <br></br>
-        <CardButton onClick={deletePlant}>Delete
-        </CardButton>
-
+        <CardButton onClick={deletePlant}>Delete</CardButton>
       </CardWrapper>
     </div>
   );
 };
-
 
 const mapStateToProps = (state) => {
   //console.log("map at plant list:", state[0].plantID);

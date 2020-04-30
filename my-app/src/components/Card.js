@@ -1,4 +1,3 @@
-import React from "react";
 import styled, { css } from "styled-components";
 
 export const CardWrapper = styled.div`
@@ -18,8 +17,6 @@ export const CardBody = styled.div`
   padding-left: 32px;
 `;
 
-
-
 export const CardButton = styled.button`
 display: inline-block;
     border: none;
@@ -32,10 +29,9 @@ display: inline-block;
     font-size: 1rem;
     cursor: pointer;
     text-align: center;
-    transition: background 250ms ease-in-out, 
+    transition: background 250ms ease-in-out,
                 transform 150ms ease;
     -webkit-appearance: none;
     -moz-appearance: none;
-    
 `;
 

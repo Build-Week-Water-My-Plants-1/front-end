@@ -12,7 +12,6 @@ import {Link} from 'react-router-dom'
 
 const PlantDashBoard = (props) => {
   const [plant, setPlant] = useState([]);
-  const [list, setList] = useState([])
 
   useEffect(() => {
     //console.log('id in dashboard',props.id)
@@ -30,9 +29,11 @@ const PlantDashBoard = (props) => {
     <div>
       <h1>Your Plants</h1>
       <Link to="/add">
+
         <CardButton type="button">
           Add A Plant
         </CardButton>
+
         </Link>
       <div className='dash'>
       {plant.map((p) => (
