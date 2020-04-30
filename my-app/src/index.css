@@ -33,3 +33,7 @@ a:hover{
 .cards-container{
   display: flex;
 }
+
+.dashboard{
+  text-align: center;
+}

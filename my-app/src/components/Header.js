@@ -16,7 +16,7 @@ const LinksDiv = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-left: 10%;
+  margin-left: 7%;
 `;
 
 const SignUpDiv = styled.div`
@@ -42,7 +42,7 @@ const Header = () => {
   return (
     <Nav>
       <LinksDiv>
-        <h1>Plant2o</h1>
+        <h1>PlantH2o</h1>
         <a
           href="https://angry-goodall-235971.netlify.app/"
           target="_blank"

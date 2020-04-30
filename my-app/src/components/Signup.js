@@ -17,7 +17,7 @@ export const WrapperDiv = styled.div`
   padding: 2% 5% 5% 5%;
   background-color: #f1f3f2;
   opacity: 0.95;
-  margin-top: 14%;
+  margin-top: 5%;
   display: flex;
   flex-direction: column;
   font-family: "Nunito Sans", sans-serif;
@@ -86,6 +86,7 @@ const SignUp = (props) => {
   };
 
   return (
+    <div className='login-signupForm'>
     <ContentDiv>
       <WrapperDiv>
         <Form onSubmit={handleSubmit}>
@@ -124,6 +125,7 @@ const SignUp = (props) => {
         </Form>
       </WrapperDiv>
     </ContentDiv>
+    </div>
   );
 };
 // const mapStateToProps = (state) => {

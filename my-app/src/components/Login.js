@@ -79,12 +79,13 @@ const LoginForm = (props) => {
   };
 
   return (
+    <div className="login-signupForm">
     <ContentDiv>
       <WrapperDiv>
         <Form onSubmit={onSubmit}>
 
 
-        {/* <div className="loginForm"> */}
+         
 
           <h3>Welcome back!</h3>
           <H4>Log into your account</H4>
@@ -107,11 +108,12 @@ const LoginForm = (props) => {
             onChange={handleChanges}
           />
           <Button type="submit">Next</Button>
-          {/* </div> */}
+           
 
         </Form>
       </WrapperDiv>
     </ContentDiv>
+    </div>
   );
 };
 const mapStateToProps = (state) => {
