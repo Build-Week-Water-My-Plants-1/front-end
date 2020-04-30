@@ -1,22 +1,60 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import { Route, Link } from 'react-router-dom';
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import { Route, Link } from "react-router-dom";
+import styled from "styled-components";
 // import './index.css';
 
+const Nav = styled.nav`
+  background-color: #235b2d;
+  color: white;
+  font-family: "Nunito Sans", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 
+const LinksDiv = styled.div`
+display: flex;
+justify-content: space-around;
+  align-items: center;
+  margin-left: 10%;
+`;
+
+const SignUpDiv = styled.div`
+display: flex;
+`;
+
+
+
+const Button = styled.button`
+  background-color: transparent;
+  color: white;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: .8rem;
+  border: none;
+  margin-right: 20px;
+`;
+
+const StyledLink = styled(Link)`
+color: white;
+text-decoration: none;
+margin-left: 30%;
+`;
 
 const Header = () => {
-
   return (
-    <nav>
-      <h1>Plant Parenthood</h1>
-      <Link to='/'>Home</Link>
-      <Link to='/login'>About</Link>
-      <button id='signup'>Sign Up</button>
-      <button id='login'>Log In</button>
-
-    </nav>
-  )
-}
+    <Nav>
+      <LinksDiv>
+        <h1>Plant2o</h1>
+        <StyledLink to="/" className="nav-link">Home</StyledLink>
+        <StyledLink to="#" className="nav-link">About</StyledLink>
+      </LinksDiv>
+      <SignUpDiv>
+        <Button id="signup">Sign Up</Button>
+        <Button id="login">Log In</Button>
+      </SignUpDiv>
+    </Nav>
+  );
+};
 
 export default Header;
