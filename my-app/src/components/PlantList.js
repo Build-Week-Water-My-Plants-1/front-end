@@ -5,21 +5,8 @@ import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 import styled from "styled-components";
-import ReactDOM from "react-dom";
-import {
-  CardWrapper,
-  CardHeader,
-  CardHeading,
-  CardBody,
-  CardIcon,
-  CardFieldset,
-  CardInput,
-  CardOptionsItem,
-  CardOptions,
-  CardOptionsNote,
-  CardButton,
-  CardLink,
-} from "./Card";
+
+import { CardWrapper, CardBody, CardButton } from "./Card";
 import Button from "./Header";
 
 const PlantList = (props) => {
@@ -37,15 +24,10 @@ const PlantList = (props) => {
     axiosWithAuth()
       .delete(`/api/${props.id}/plants/${props.plant.id}`)
       .then((res) => {
-        console.log("res from delete", res);
-        // console.log(res.config.url.includes(props.plant.id));
-        // props.plantList.filter(
-        //   (plant) => console.log(plant.id)
-        // );
+        //console.log("res from delete", res);
         const newList = props.plantList.filter(
           (plant) => !res.config.url.includes(plant.id)
         );
-        //console.log(newList)
         props.setPlantList(newList);
         push("/dashboard");
       })
@@ -57,7 +39,7 @@ const PlantList = (props) => {
   //DASHBOARD STYLING
 
   return (
-    <div className="cards-container">
+    <div>
       <CardWrapper>
         <h2>{props.plant.common_name}</h2>
         <CardBody>-Maintenance-</CardBody> <h2>{props.plant.h2o_frequency}</h2>

@@ -9,7 +9,7 @@ import * as Yup from "yup";
 /////////////Styling/////////////////
 const WrapperDiv = styled.div`
   width: 20%;
-  height: 80%;
+  height: 60%;
   padding: 2% 5% 5% 5%;
   background-color: #f1f3f2;
   background: rgba(0.75);
@@ -73,7 +73,9 @@ const AddPlant = (props) => {
     const newFormData = {
       ...formState,
       [event.target.name]:
-      event.target.type === "checkbox" ? event.target.checked : event.target.value,
+        event.target.type === "checkbox"
+          ? event.target.checked
+          : event.target.value,
     };
     setFormState(newFormData);
     let value = event.target.value;
@@ -119,8 +121,7 @@ const AddPlant = (props) => {
   const ifValid = (e) => {
     // yup.reach will allow us to "reach" into the schema and test only one part.
     // We give reach the schema as the first argument, and the key we want to test as the second.
-    Yup
-      .reach(formSchema, e.target.name)
+    Yup.reach(formSchema, e.target.name)
       //we can then run validate using the value
       .validate(e.target.value)
       // if the validation is successful, we can clear the error message
@@ -147,53 +148,55 @@ const AddPlant = (props) => {
   };
 
   return (
-    <WrapperDiv>
-      <Form>
-        <h4>Looking good!</h4>
-        <h3>Now let's add your plant.</h3>
-        <Label htmlFor="common_name">Plant Name (required)</Label>
-        <input
-          id="common_name"
-          name="common_name"
-          type="text"
-          placeholder="Plant Name"
-          value={addPlantData.common_name}
-          onChange={handleChanges}
-          required
-        />
-        {errors.common_name.length > 0 ? errors.common_name : null}
+    <div className="center-box">
+      <WrapperDiv>
+        <Form>
+          <h4>Looking good!</h4>
+          <h3>Now let's add your plant.</h3>
+          <Label htmlFor="common_name">Plant Name (required)</Label>
+          <input
+            id="common_name"
+            name="common_name"
+            type="text"
+            placeholder="Plant Name"
+            value={addPlantData.common_name}
+            onChange={handleChanges}
+            required
+          />
+          {errors.common_name.length > 0 ? errors.common_name : null}
 
-        <Label htmlFor="h2o_frequency">Maintenance</Label>
-        <select
-          className="size-options"
-          id="h2o_frequency"
-          name="h2o_frequency"
-          onChange={handleChanges}
-        >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </select>
-        <Label htmlFor="scientific_name">Species (required)</Label>
-        <input
-          id="scientific_name"
-          name="scientific_name"
-          type="text"
-          placeholder="Species"
-          value={addPlantData.scientific_name}
-          onChange={handleChanges}
-          required
-        />
-        {errors.scientific_name.length > 0 ? errors.scientific_name : null}
+          <Label htmlFor="h2o_frequency">Maintenance</Label>
+          <select
+            className="size-options"
+            id="h2o_frequency"
+            name="h2o_frequency"
+            onChange={handleChanges}
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <Label htmlFor="scientific_name">Species (required)</Label>
+          <input
+            id="scientific_name"
+            name="scientific_name"
+            type="text"
+            placeholder="Species"
+            value={addPlantData.scientific_name}
+            onChange={handleChanges}
+            required
+          />
+          {errors.scientific_name.length > 0 ? errors.scientific_name : null}
 
-        <Button disabled={buttonOn} type="submit" onClick={handleSubmit}>
-          Next
-        </Button>
-        <SkipButton disabled={buttonOn} type="skip" onClick={handleSkip}>
-          Skip
-        </SkipButton>
-      </Form>
-    </WrapperDiv>
+          <Button disabled={buttonOn} type="submit" onClick={handleSubmit}>
+            Next
+          </Button>
+          <SkipButton type="skip" onClick={handleSkip}>
+            Skip
+          </SkipButton>
+        </Form>
+      </WrapperDiv>
+    </div>
   );
 };
 const mapStateToProps = (state) => {
