@@ -42,16 +42,16 @@ const Header = () => {
   return (
     <Nav>
       <LinksDiv>
-        <h1>Plant2o</h1>
+        <h1>Oxygen</h1>
         <StyledLink
-          href="https://angry-goodall-235971.netlify.app/"
+          href="https://plantlove.netlify.app/"
           target="_blank"
           className="nav-link home"
         >
           Home
         </StyledLink>
        <StyledLink
-       href="https://angry-goodall-235971.netlify.app/about.html"
+       href="https://plantlove.netlify.app/about.html"
        target="_blank"
        className="nav-link about"
        >
