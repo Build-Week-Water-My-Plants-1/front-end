@@ -53,6 +53,7 @@ const SkipButton = styled.button`
 
 const formSchema = Yup.object().shape({
   common_name: Yup.string().required(),
+  h2o_frequency: Yup.string(),
   scientific_name: Yup.string().required(),
 });
 
@@ -85,7 +86,7 @@ const AddPlant = (props) => {
       [event.target.name]: value,
     });
 
-    console.log("addPlantData", addPlantData);
+    //console.log("addPlantData", addPlantData);
   };
 
   const handleSkip = (e) => {
@@ -105,10 +106,12 @@ const AddPlant = (props) => {
   };
   const [errors, setErrors] = useState({
     common_name: "",
+    h2o_frequency: "",
     scientific_name: "",
   });
   const [formState, setFormState] = useState({
     common_name: "",
+    h2o_frequency: "",
     scientific_name: "",
   });
   const [buttonOn, setButtonOn] = useState(false);
