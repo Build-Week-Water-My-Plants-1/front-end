@@ -32,7 +32,7 @@ export const Button = styled.button`
   margin-right: 40px;
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.a`
   color: white;
   text-decoration: none;
   margin-left: 30%;
@@ -42,17 +42,21 @@ const Header = () => {
   return (
     <Nav>
       <LinksDiv>
-        <h1>PlantH2o</h1>
-        <a
+        <h1>Plant2o</h1>
+        <StyledLink
           href="https://angry-goodall-235971.netlify.app/"
           target="_blank"
           className="nav-link home"
         >
           Home
-        </a>
-        <StyledLink to="#" className="nav-link">
-          About
         </StyledLink>
+       <StyledLink
+       href="https://angry-goodall-235971.netlify.app/about.html"
+       target="_blank"
+       className="nav-link about"
+       >
+         About
+       </StyledLink>
       </LinksDiv>
       <SignUpDiv>
         <Button id="signup">
