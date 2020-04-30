@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef} from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { connect } from "react-redux";
 import { getID, getPlantID } from "../action";
@@ -6,9 +6,10 @@ import PlantList from "./PlantList";
 
 const PlantDashBoard = (props) => {
   const [plant, setPlant] = useState([]);
+  const [list, setList] = useState([])
 
   useEffect(() => {
-    console.log('id in dashboard',props.id)
+    //console.log('id in dashboard',props.id)
     axiosWithAuth()
       .get(`/api/${props.id}/plants`)
       .then((res) => {
@@ -17,7 +18,7 @@ const PlantDashBoard = (props) => {
         props.setPlantList(res.data);
       })
       .catch((err) => console.log(err));
-  },[props.plantList]);
+  },[props.plantList.length]);
 
   return (
     <div>
