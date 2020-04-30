@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
-// import { fetchPlants } from "../action";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { connect } from "react-redux";
 import { getID, getPlantID } from "../action";
-import { useHistory } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import PlantList from "./PlantList";
 
 const PlantDashBoard = (props) => {
-  //console.log(props);
   const [plant, setPlant] = useState([]);
 
   useEffect(() => {
@@ -19,8 +15,7 @@ const PlantDashBoard = (props) => {
         props.setPlantList(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
-  //console.log(plant);
+  },[props.plantList]);
 
   return (
     <div>
@@ -33,10 +28,9 @@ const PlantDashBoard = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  //console.log("map at plant list:", state);
   return {
     id: state[0].id,
-    plantID: state.plantID,
+    plantID: state[0].plantID,
   };
 };
 export default connect(mapStateToProps, { getID, getPlantID })(PlantDashBoard);

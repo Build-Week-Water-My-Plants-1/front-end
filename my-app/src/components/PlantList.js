@@ -5,8 +5,8 @@ import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const PlantList = (props) => {
-  console.log("props", props.getPlantID(props.plant.id));
-  //props.plantID(props.plant.id)
+  //console.log("props", props.getPlantID(props.plant.id));
+
   const { push } = useHistory();
   const handleSubmit = () => {
     props.getPlantID(props.plant.id);
@@ -15,16 +15,17 @@ const PlantList = (props) => {
 
   const deletePlant = (e) => {
     e.preventDefault();
+    props.getPlantID(props.plant.id);
+    console.log("props", props.getPlantID(props.plant.id));
     axiosWithAuth()
-      .delete(`/api/${props.id}/plants/${props.plantID}`)
+      .delete(`/api/${props.id}/plants/${props.plant.id}`)
       .then((res) => {
-        console.log("res from delete", res);
-        // console.log(props.plantList);
-        // const newList = props.plantList.filter(
-        //   (plant) => plant.id !== res.data
-        // );
-        // console.log("new list", newList);
-        //props.setPlantList(newList);
+        // console.log("res from delete", res.config.url);
+        // console.log(res.config.url.includes(props.plant.id));
+        const newList = props.plantList.filter(
+          (plant) => !res.config.url.includes(plant.id)
+        );
+        props.setPlantList(newList);
         push("/dashboard");
       })
       .catch((err) => {
@@ -44,10 +45,10 @@ const PlantList = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  //console.log("map at plant list:", state[0]);
+  //console.log("map at plant list:", state[0].plantID);
   return {
     id: state[0].id,
-    plantID: state.plantID,
+    plantID: state[0].plantID,
   };
 };
 export default connect(mapStateToProps, { getID, getPlantID })(PlantList);
