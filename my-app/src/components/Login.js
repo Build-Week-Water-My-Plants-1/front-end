@@ -44,6 +44,8 @@ const Button = styled.button`
   margin-top: 15%;
 `;
 
+
+
 /////////////////////LoginForm function/////////////////
 const LoginForm = (props) => {
   const [logInData, setLogInData] = useState({ username: "", password: "" });
@@ -71,6 +73,7 @@ const LoginForm = (props) => {
   return (
     <WrapperDiv>
       <Form onSubmit={onSubmit}>
+
         <div className="loginForm">
           <h4>Welcome back!</h4>
           <H4>Log into your account</H4>
@@ -94,6 +97,7 @@ const LoginForm = (props) => {
           />
           <Button type="submit">Next</Button>
         </div>
+
       </Form>
     </WrapperDiv>
   );

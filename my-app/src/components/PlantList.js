@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { getID, getPlantID } from "../action";
@@ -5,9 +6,9 @@ import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const PlantList = (props) => {
-  //console.log("props", props.getPlantID(props.plant.id));
 
   const { push } = useHistory();
+  
   const handleSubmit = () => {
     props.getPlantID(props.plant.id);
     push("./update");
@@ -43,6 +44,7 @@ const PlantList = (props) => {
     </div>
   );
 };
+
 
 const mapStateToProps = (state) => {
   //console.log("map at plant list:", state[0].plantID);

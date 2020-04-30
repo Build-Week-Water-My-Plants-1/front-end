@@ -71,7 +71,9 @@ const SignUp = (props) => {
       .then((res) => {
         //console.log(res);
         //console.log(props.id)
+
         console.log("id",res.data.id);
+
         push("/login");
       })
       .catch((err) => console.log({ err }));
