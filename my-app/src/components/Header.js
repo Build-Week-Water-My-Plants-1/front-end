@@ -26,7 +26,6 @@ const SignUpDiv = styled.div`
 
 
 export const Button = styled.button`
-
   background-color: transparent;
   color: white;
   font-family: "Nunito Sans", sans-serif;
@@ -76,4 +75,3 @@ const Header = () => {
 };
 
 export default Header;
-

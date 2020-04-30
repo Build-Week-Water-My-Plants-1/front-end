@@ -16,7 +16,7 @@ code {
 .dash{
   display: flex;
   justify-content: space-evenly;
-
+}
 
 a,a:link,a:visited{
   color:white;
@@ -29,3 +29,4 @@ a:hover{
 .home{
   padding-left: 61px;
 
+}
