@@ -14,6 +14,7 @@ const ContentDiv = styled.div`
 const WrapperDiv = styled.div`
   width: 20%;
   height: 80%;
+  margin-top: 20%;
   padding: 2% 5% 5% 5%;
   background-color: #f1f3f2;
   display: flex;

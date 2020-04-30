@@ -30,9 +30,9 @@ const Button = styled.button`
   background-color: transparent;
   color: white;
   font-family: "Nunito Sans", sans-serif;
-  font-size: .8rem;
+  font-size: 1rem;
   border: none;
-  margin-right: 20px;
+  margin-right: 40px;
 `;
 
 const StyledLink = styled(Link)`

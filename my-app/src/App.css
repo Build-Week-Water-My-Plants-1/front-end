@@ -1,6 +1,9 @@
 .App {
   height: 100vh;
   background-image: url('./components/images/plantbackground.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 /* 
 .App-logo {

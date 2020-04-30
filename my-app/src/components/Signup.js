@@ -11,8 +11,8 @@ const WrapperDiv = styled.div`
   width: 20%;
   height: 80%;
   padding: 2% 5% 5% 5%;
-  background-color: #f1f3f2;
-  background: rgba(0.75);
+  background-color:  #f1f3f2;
+  opacity: 0.95;
   display: flex;
   flex-direction: column;
   font-family: "Nunito Sans", sans-serif;
