@@ -56,7 +56,7 @@ const AddPlant = (props) => {
   const [addPlantData, setAddPlantData] = useState({
     common_name: "",
     scientific_name: "",
-    h2o_frequency: "",
+    h2o_frequency: "1",
   });
   const { push } = useHistory();
 

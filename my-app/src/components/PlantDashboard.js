@@ -8,9 +8,11 @@ const PlantDashBoard = (props) => {
   const [plant, setPlant] = useState([]);
 
   useEffect(() => {
+    console.log('id in dashboard',props.id)
     axiosWithAuth()
       .get(`/api/${props.id}/plants`)
       .then((res) => {
+        console.log("res from get plants",res);
         setPlant(res.data);
         props.setPlantList(res.data);
       })
