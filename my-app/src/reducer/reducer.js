@@ -15,7 +15,7 @@ export const reducer = (state = initialState, action) => {
         },
       ];
     case "GET_PLANT_ID":
-      console.log("suc!");
+      //console.log("suc!");
       return { ...state, plantID: action.plantID };
 
     default:
