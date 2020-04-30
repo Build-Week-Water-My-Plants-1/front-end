@@ -26,7 +26,7 @@ const PlantDashBoard = (props) => {
   },[props.plantList.length]);
 
   return (
-    <div>
+    <div className='dashboard'>
       <h1>Your Plants</h1>
       <Link to="/add">
 

@@ -16,7 +16,7 @@ const LinksDiv = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-left: 10%;
+  margin-left: 7%;
 `;
 
 const SignUpDiv = styled.div`
