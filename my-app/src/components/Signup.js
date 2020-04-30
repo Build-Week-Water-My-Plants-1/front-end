@@ -7,12 +7,19 @@ import { getID } from "../action/index";
 // import './index.css';
 
 /////////////Styling/////////////////
+const ContentDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+`;
+
 const WrapperDiv = styled.div`
-  width: 20%;
+  width: 200px;
   height: 80%;
   padding: 2% 5% 5% 5%;
-  background-color:  #f1f3f2;
+  background-color: #f1f3f2;
   opacity: 0.95;
+  margin-top: 14%;
   display: flex;
   flex-direction: column;
   font-family: "Nunito Sans", sans-serif;
@@ -27,13 +34,14 @@ const Form = styled.form`
 const H4 = styled.h4`
   font-family: "Nunito Sans", sans-serif;
   font-weight: 400;
+  font-size: 1.1rem;
   margin: 0 0 10% 0;
 `;
 
 const Label = styled.label`
   text-align: left;
   font-weight: 300;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   padding-top: 5%;
 `;
 
@@ -78,44 +86,44 @@ const SignUp = (props) => {
   };
 
   return (
+    <ContentDiv>
+      <WrapperDiv>
+        <Form onSubmit={handleSubmit}>
+          <h3>Let's get started!</h3>
 
+          <H4>Create your account</H4>
 
-    <WrapperDiv>
-      <Form onSubmit={handleSubmit}>
-        <h4>Let's get started!</h4>
-
-        <H4>Create your account</H4>
-
-        <Label htmlFor="username">Username</Label>
-        <input
-          id="username"
-          name="username"
-          type="text"
-          placeholder="Username"
-          value={signUpData.username}
-          onChange={handleChanges}
-        />
-        <Label htmlFor="phone_number">Phone Number</Label>
-        <input
-          id="phone_number"
-          name="phone_number"
-          type="text"
-          placeholder="Phone Number"
-          value={signUpData.phone_number}
-          onChange={handleChanges}
-        />
-        <Label htmlFor="password">Password</Label>
-        <input
-          id="password"
-          name="password"
-          type="text"
-          placeholder="Password"
-          value={signUpData.password}
-          onChange={handleChanges}
-        />
-        <Button type="submit">Next</Button>
-      </Form>
-    </WrapperDiv>
+          <Label htmlFor="username">Username</Label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            placeholder="Username"
+            value={signUpData.username}
+            onChange={handleChanges}
+          />
+          <Label htmlFor="phone_number">Phone Number</Label>
+          <input
+            id="phone_number"
+            name="phone_number"
+            type="text"
+            placeholder="Phone Number"
+            value={signUpData.phone_number}
+            onChange={handleChanges}
+          />
+          <Label htmlFor="password">Password</Label>
+          <input
+            id="password"
+            name="password"
+            type="text"
+            placeholder="Password"
+            value={signUpData.password}
+            onChange={handleChanges}
+          />
+          <Button type="submit">Next</Button>
+        </Form>
+      </WrapperDiv>
+    </ContentDiv>
   );
 };
 const mapStateToProps = (state) => {

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import styled from "styled-components";
-import img from "./images/plantbackground.jpg"
+
 
 /////////////Styling/////////////////
 const ContentDiv = styled.div`
-  background-image: img;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -44,10 +43,10 @@ const Label = styled.label`
 const Button = styled.button`
   height: 2rem;
   font-size: 0.9rem;
-  background-image: ;
-  background: rgba(0.75);
+  background-color: #235b2d;
   color: white;
-  margin-right: 20px;
+  border-radius: 4px;
+  margin-top: 15%;
 `;
 
 /////////////////////LoginForm function/////////////////
