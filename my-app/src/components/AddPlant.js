@@ -148,56 +148,54 @@ const AddPlant = (props) => {
   };
 
   return (
-    <div className="center-box">
-      <WrapperDiv>
-        <Form>
-          <h4>Looking good!</h4>
-          <h3>Now let's add your plant.</h3>
-          <Label htmlFor="common_name">Plant Name (required)</Label>
-          <input
-            id="common_name"
-            name="common_name"
-            type="text"
-            placeholder="Plant Name"
-            value={addPlantData.common_name}
-            onChange={handleChanges}
-            required
-          />
-          {errors.common_name.length > 0 ? errors.common_name : null}
+    <div className="login-signupForm"> 
+    <WrapperDiv>
+      <Form>
+        <h4>Looking good!</h4>
+        <h3>Now let's add your plant.</h3>
+        <Label htmlFor="common_name">Plant Name (required)</Label>
+        <input
+          id="common_name"
+          name="common_name"
+          type="text"
+          placeholder="Plant Name"
+          value={addPlantData.common_name}
+          onChange={handleChanges}
+          required
+        />
+        {errors.common_name.length > 0 ? errors.common_name : null}
 
-          <Label htmlFor="h2o_frequency">Maintenance</Label>
-          <select
-            className="size-options"
-            id="h2o_frequency"
-            name="h2o_frequency"
-            onChange={handleChanges}
-          >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-          <Label htmlFor="scientific_name">Species (required)</Label>
-          <input
-            id="scientific_name"
-            name="scientific_name"
-            type="text"
-            placeholder="Species"
-            value={addPlantData.scientific_name}
-            onChange={handleChanges}
-            required
-          />
-          {errors.scientific_name.length > 0 ? errors.scientific_name : null}
+        <Label htmlFor="h2o_frequency">Maintenance</Label>
+        <select
+          className="size-options"
+          id="h2o_frequency"
+          name="h2o_frequency"
+          onChange={handleChanges}
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        <Label htmlFor="scientific_name">Species (required)</Label>
+        <input
+          id="scientific_name"
+          name="scientific_name"
+          type="text"
+          placeholder="Species"
+          value={addPlantData.scientific_name}
+          onChange={handleChanges}
+          required
+        />
+        {errors.scientific_name.length > 0 ? errors.scientific_name : null}
 
-          <Button disabled={buttonOn} type="submit" onClick={handleSubmit}>
-            Next
-          </Button>
-          <div className="center-skip">
-          <SkipButton type="skip" onClick={handleSkip}>
-            Skip
-          </SkipButton>
-          </div>
-        </Form>
-      </WrapperDiv>
+        <Button disabled={buttonOn} type="submit" onClick={handleSubmit}>
+          Next
+        </Button>
+        <SkipButton disabled={buttonOn} type="skip" onClick={handleSkip}>
+          Skip
+        </SkipButton>
+      </Form>
+    </WrapperDiv>
     </div>
   );
 };
