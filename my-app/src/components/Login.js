@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import styled from "styled-components";
 import img from "./images/plantbackground.jpg"
+import { connect } from "react-redux";
+import { getID } from "../action";
 
 /////////////Styling/////////////////
 const ContentDiv = styled.div`
@@ -49,6 +51,8 @@ const Button = styled.button`
   margin-right: 20px;
 `;
 
+
+
 /////////////////////LoginForm function/////////////////
 const LoginForm = (props) => {
   const [logInData, setLogInData] = useState({ username: "", password: "" });
@@ -64,18 +68,23 @@ const LoginForm = (props) => {
     axiosWithAuth()
       .post("/api/auth/login", logInData)
       .then((res) => {
-        //console.log(res.data);
+        console.log(res.data);
         window.localStorage.setItem("token", res.data.token);
         setLogInData({ username: "", password: "" });
+        props.getID(res.data.id);
         props.history.push("/add");
       })
       .catch((err) => console.log(err, logInData));
   };
 
   return (
+
     <ContentDiv>
       <WrapperDiv>
         <Form onSubmit={onSubmit}>
+
+        <div className="loginForm">
+
           <h4>Welcome back!</h4>
           <H4>Log into your account</H4>
           <Label htmlFor="username">Username</Label>
@@ -97,10 +106,17 @@ const LoginForm = (props) => {
             onChange={handleChanges}
           />
           <Button type="submit">Next</Button>
+          </div>
         </Form>
       </WrapperDiv>
     </ContentDiv>
+        
   );
 };
-
-export default LoginForm;
+const mapStateToProps = (state) => {
+  console.log("map:", state[0].id);
+  return {
+    id: state[0].id,
+  };
+};
+export default connect(mapStateToProps, { getID })(LoginForm);
