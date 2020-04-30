@@ -38,11 +38,15 @@ const PlantList = (props) => {
     axiosWithAuth()
       .delete(`/api/${props.id}/plants/${props.plant.id}`)
       .then((res) => {
-        // console.log("res from delete", res.config.url);
+        console.log("res from delete", res);
         // console.log(res.config.url.includes(props.plant.id));
+        // props.plantList.filter(
+        //   (plant) => console.log(plant.id)
+        // );
         const newList = props.plantList.filter(
           (plant) => !res.config.url.includes(plant.id)
         );
+        //console.log(newList)
         props.setPlantList(newList);
         push("/dashboard");
       })
