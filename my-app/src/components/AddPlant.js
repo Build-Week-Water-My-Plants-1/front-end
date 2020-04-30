@@ -47,7 +47,7 @@ const Button = styled.button`
 `;
 
 const SkipButton = styled.button`
-  padding-top: 3%;
+  padding-top: 2%;
   width: 70px;
 `;
 
@@ -191,9 +191,11 @@ const AddPlant = (props) => {
           <Button disabled={buttonOn} type="submit" onClick={handleSubmit}>
             Next
           </Button>
+          <div className="center-skip">
           <SkipButton type="skip" onClick={handleSkip}>
             Skip
           </SkipButton>
+          </div>
         </Form>
       </WrapperDiv>
     </div>

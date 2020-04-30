@@ -35,3 +35,12 @@ a:hover{
   display: flex;
   justify-content: center;
 }
+
+.dashboard{
+  text-align: center;
+}
+.center-skip{
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+}

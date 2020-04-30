@@ -16,7 +16,7 @@ const LinksDiv = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-left: 10%;
+  margin-left: 7%;
 `;
 
 const SignUpDiv = styled.div`
@@ -32,7 +32,7 @@ export const Button = styled.button`
   margin-right: 40px;
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.a`
   color: white;
   text-decoration: none;
   margin-left: 30%;
@@ -43,16 +43,20 @@ const Header = () => {
     <Nav>
       <LinksDiv>
         <h1>Plant2o</h1>
-        <a
+        <StyledLink
           href="https://angry-goodall-235971.netlify.app/"
           target="_blank"
           className="nav-link home"
         >
           Home
-        </a>
-        <StyledLink to="#" className="nav-link">
-          About
         </StyledLink>
+       <StyledLink
+       href="https://angry-goodall-235971.netlify.app/about.html"
+       target="_blank"
+       className="nav-link about"
+       >
+         About
+       </StyledLink>
       </LinksDiv>
       <SignUpDiv>
         <Button id="signup">
