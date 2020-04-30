@@ -17,10 +17,10 @@ const UpdatePlate = (props) => {
 
   useEffect(() => {
     axiosWithAuth()
-      .get(`/api/${props.id}/plants`)
+      .get(`/api/${props.id}/plants/${props.plantID}`)
       .then((res) => setPlant(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [props.plantID]);
 
   const changeHandler = (ev) => {
     ev.persist();

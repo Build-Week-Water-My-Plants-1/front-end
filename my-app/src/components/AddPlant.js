@@ -53,9 +53,10 @@ const SkipButton = styled.button`
 ////////////////AddPlant function////////////////////
 const AddPlant = (props) => {
   const [addPlantData, setAddPlantData] = useState({
+    id: Date.now(),
     common_name: "",
     scientific_name: "",
-    h2o_frequency: "1",
+    h2o_frequency: "2",
   });
   const { push } = useHistory();
 
@@ -107,8 +108,9 @@ const AddPlant = (props) => {
         <select
           className="size-options"
           id="h2o_frequency"
-          name="size"
+          name="h2o_frequency"
           onChange={handleChanges}
+          
         >
           <option value="low">Low</option>
           <option value="medium">Medium</option>

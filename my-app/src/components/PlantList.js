@@ -6,47 +6,32 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const PlantList = (props) => {
 
-  console.log("props", props.getPlantID(props.plant.id));
-  //props.plantID(props.plant.id)
   const { push } = useHistory();
   
   const handleSubmit = () => {
     props.getPlantID(props.plant.id);
-    push("./update")
+    push("./update");
   };
-
-  // const deletePlant = (e) => {
-  //   e.preventDefault();
-  //   axiosWithAuth()
-  //     .delete(`/api/${props.id}/plants/${props.plantID}`)
-  //     .then((res) => {
-  //       console.log({res});
-  //       console.log(props.plantList);
-  //       const newList = props.plantList.filter(plants => plants.id !== res.data)
-  //         props.setPlantList(newList)
-  //         console.log('setPlantList:',props.setPlantList)
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
 
   const deletePlant = (e) => {
     e.preventDefault();
+    props.getPlantID(props.plant.id);
+    console.log("props", props.getPlantID(props.plant.id));
     axiosWithAuth()
-      .delete(`/api/${props.id}/plants/${props.plantID}`)
+      .delete(`/api/${props.id}/plants/${props.plant.id}`)
       .then((res) => {
-        axiosWithAuth()
-        .get(`/api/${props.id}/plants`)
-        .then((res) => 
-          props.setPlantList(res.data))
-        
+        // console.log("res from delete", res.config.url);
+        // console.log(res.config.url.includes(props.plant.id));
+        const newList = props.plantList.filter(
+          (plant) => !res.config.url.includes(plant.id)
+        );
+        props.setPlantList(newList);
+        push("/dashboard");
       })
       .catch((err) => {
-        console.log(err);
+        console.log("err from delete", err);
       });
   };
-  
 
   return (
     <div>
@@ -55,27 +40,16 @@ const PlantList = (props) => {
       <h1>Species: {props.plant.scientific_name}</h1>
       <button onClick={handleSubmit}>Edit</button>
       <button onClick={deletePlant}>Delete</button>
-
     </div>
   );
 };
 
 
-
 const mapStateToProps = (state) => {
-  //console.log("map at plant list:", state[0]);
+  //console.log("map at plant list:", state[0].plantID);
   return {
     id: state[0].id,
-    plantID: state.plantID,
+    plantID: state[0].plantID,
   };
 };
 export default connect(mapStateToProps, { getID, getPlantID })(PlantList);
-
-    
-
- 
-  
-
-
-
-
