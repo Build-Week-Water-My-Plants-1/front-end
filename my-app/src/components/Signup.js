@@ -2,18 +2,16 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import styled from "styled-components";
-import { connect } from "react-redux";
-import { getID } from "../action/index";
-// import './index.css';
 
 /////////////Styling/////////////////
-const ContentDiv = styled.div`
+
+export const ContentDiv = styled.div`
   display: flex;
   justify-content: center;
   align-content: center;
 `;
 
-const WrapperDiv = styled.div`
+export const WrapperDiv = styled.div`
   width: 200px;
   height: 80%;
   padding: 2% 5% 5% 5%;
@@ -25,27 +23,27 @@ const WrapperDiv = styled.div`
   font-family: "Nunito Sans", sans-serif;
 `;
 
-const Form = styled.form`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-content: center;
 `;
 
-const H4 = styled.h4`
+export const H4 = styled.h4`
   font-family: "Nunito Sans", sans-serif;
   font-weight: 400;
   font-size: 1.1rem;
   margin: 0 0 10% 0;
 `;
 
-const Label = styled.label`
+export const Label = styled.label`
   text-align: left;
   font-weight: 300;
   font-size: 0.9rem;
   padding-top: 5%;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   height: 2rem;
   font-size: 0.9rem;
   background-color: #235b2d;
@@ -62,6 +60,7 @@ const SignUp = (props) => {
     phone_number: "",
     password: "",
   });
+
   const { push } = useHistory();
   const handleChanges = (event) => {
     setSignUpData({
@@ -78,8 +77,9 @@ const SignUp = (props) => {
       .then((res) => {
         //console.log(res);
         //console.log(props.id)
-        // console.log(res.data.id);
-        props.getID(res.data.id);
+
+        console.log("id",res.data.id);
+
         push("/login");
       })
       .catch((err) => console.log({ err }));
@@ -126,10 +126,10 @@ const SignUp = (props) => {
     </ContentDiv>
   );
 };
-const mapStateToProps = (state) => {
-  //console.log("map:", state[0].id);
-  return {
-    id: state[0].id,
-  };
-};
-export default connect(mapStateToProps, { getID })(SignUp);
+// const mapStateToProps = (state) => {
+//   //console.log("map:", state[0].id);
+//   return {
+//     id: state[0].id,
+//   };
+// };
+export default SignUp;
