@@ -148,7 +148,7 @@ const AddPlant = (props) => {
   };
 
   return (
-    <div className="login-signupForm"> 
+    <div className="login-signupForm center-box">
     <WrapperDiv>
       <Form>
         <h4>Looking good!</h4>
@@ -191,9 +191,11 @@ const AddPlant = (props) => {
         <Button disabled={buttonOn} type="submit" onClick={handleSubmit}>
           Next
         </Button>
-        <SkipButton disabled={buttonOn} type="skip" onClick={handleSkip}>
+        <div className="center-skip">
+        <SkipButton type="skip" onClick={handleSkip}>
           Skip
         </SkipButton>
+        </div>
       </Form>
     </WrapperDiv>
     </div>
