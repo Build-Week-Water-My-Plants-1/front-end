@@ -1,9 +1,26 @@
-
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { getID, getPlantID } from "../action";
 import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+
+import styled from "styled-components";
+import ReactDOM from "react-dom";
+import {
+  CardWrapper,
+  CardHeader,
+  CardHeading,
+  CardBody,
+  CardIcon,
+  CardFieldset,
+  CardInput,
+  CardOptionsItem,
+  CardOptions,
+  CardOptionsNote,
+  CardButton,
+  CardLink
+} from "./Card";
+import Button from './Header'
 
 const PlantList = (props) => {
 
@@ -34,13 +51,24 @@ const PlantList = (props) => {
       });
   };
 
+  //DASHBOARD STYLING
+
   return (
     <div>
-      <h1>Name: {props.plant.common_name}</h1>
-      <h1>H2O frequency: {props.plant.h2o_frequency}</h1>
-      <h1>Species: {props.plant.scientific_name}</h1>
-      <button onClick={handleSubmit}>Edit</button>
-      <button onClick={deletePlant}>Delete</button>
+      <CardWrapper>
+        <h2>{props.plant.common_name}</h2>
+        
+        <CardBody>-Maintenance-</CardBody> <h2>{props.plant.h2o_frequency}</h2>
+        
+         <CardBody>-Species-</CardBody> <h2>{props.plant.scientific_name}</h2>
+        
+        <CardButton onClick={handleSubmit}>Edit
+        </CardButton>
+        <br></br>
+        <CardButton onClick={deletePlant}>Delete
+        </CardButton>
+
+      </CardWrapper>
     </div>
   );
 };
