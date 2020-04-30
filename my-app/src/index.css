@@ -31,7 +31,7 @@ a:hover{
   padding-left: 61px;
 }
 .center-box{
-  margin-top: 50px;
+  padding-top: 30px;
   display: flex;
   justify-content: center;
 }
