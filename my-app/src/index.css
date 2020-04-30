@@ -12,6 +12,12 @@ code {
     monospace;
 }
 
+
+.dash{
+  display: flex;
+  justify-content: space-evenly;
+
+
 a,a:link,a:visited{
   color:white;
   text-decoration: none;
@@ -22,4 +28,4 @@ a:hover{
 }
 .home{
   padding-left: 61px;
-}
+

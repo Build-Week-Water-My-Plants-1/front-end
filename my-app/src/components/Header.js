@@ -23,7 +23,10 @@ const SignUpDiv = styled.div`
   display: flex;
 `;
 
-const Button = styled.button`
+
+
+export const Button = styled.button`
+
   background-color: transparent;
   color: white;
   font-family: "Nunito Sans", sans-serif;
@@ -40,8 +43,10 @@ const StyledLink = styled(Link)`
 
 const Header = () => {
   return (
+
     <Nav>
       <LinksDiv>
+
         <h1>Plant2o</h1>
         <a
           href="https://angry-goodall-235971.netlify.app/"
@@ -52,6 +57,7 @@ const Header = () => {
         <StyledLink to="#" className="nav-link">
           About
         </StyledLink>
+
       </LinksDiv>
       <SignUpDiv>
         <Button id="signup">
@@ -70,3 +76,4 @@ const Header = () => {
 };
 
 export default Header;
+
