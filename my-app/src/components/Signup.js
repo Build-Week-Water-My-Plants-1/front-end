@@ -69,7 +69,7 @@ const SignUp = (props) => {
         //console.log(res);
         //console.log(props.id)
 
-        console.log("id",res.data.id);
+        console.log("user id in sign up",res.data.id);
 
         push("/login");
       })

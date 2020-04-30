@@ -58,6 +58,7 @@ const AddPlant = (props) => {
     common_name: "",
     scientific_name: "",
     h2o_frequency: "2",
+
   });
   const { push } = useHistory();
 
@@ -113,9 +114,9 @@ const AddPlant = (props) => {
           onChange={handleChanges}
           
         >
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
         </select>
         <Label htmlFor="scientific_name">Species(optional)</Label>
         <input
