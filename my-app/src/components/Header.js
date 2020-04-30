@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import { Route, Link } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-// import './index.css';
+import "../index.css";
 
 const Nav = styled.nav`
   background-color: #235b2d;
@@ -14,19 +13,17 @@ const Nav = styled.nav`
 `;
 
 const LinksDiv = styled.div`
-display: flex;
-justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
   margin-left: 10%;
 `;
 
 const SignUpDiv = styled.div`
-display: flex;
+  display: flex;
 `;
 
-
-
-const Button = styled.button`
+export const Button = styled.button`
   background-color: transparent;
   color: white;
   font-family: "Nunito Sans", sans-serif;
@@ -36,9 +33,9 @@ const Button = styled.button`
 `;
 
 const StyledLink = styled(Link)`
-color: white;
-text-decoration: none;
-margin-left: 30%;
+  color: white;
+  text-decoration: none;
+  margin-left: 30%;
 `;
 
 const Header = () => {
@@ -46,12 +43,28 @@ const Header = () => {
     <Nav>
       <LinksDiv>
         <h1>Plant2o</h1>
-        <StyledLink to="/" className="nav-link">Home</StyledLink>
-        <StyledLink to="#" className="nav-link">About</StyledLink>
+        <a
+          href="https://angry-goodall-235971.netlify.app/"
+          target="_blank"
+          className="nav-link home"
+        >
+          Home
+        </a>
+        <StyledLink to="#" className="nav-link">
+          About
+        </StyledLink>
       </LinksDiv>
       <SignUpDiv>
-        <Button id="signup">Sign Up</Button>
-        <Button id="login">Log In</Button>
+        <Button id="signup">
+          <Link className="sign-btn" to="/">
+            Sign Up
+          </Link>
+        </Button>
+        <Button id="login">
+          <Link className="login-btn" to="/login">
+            Log In
+          </Link>
+        </Button>
       </SignUpDiv>
     </Nav>
   );

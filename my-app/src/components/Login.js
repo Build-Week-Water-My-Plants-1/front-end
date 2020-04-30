@@ -7,6 +7,7 @@ import { getID } from "../action";
 import { ContentDiv, WrapperDiv, Form, H4, Label, Button } from "./Signup"
 
 /////////////Styling/////////////////
+
 // const ContentDiv = styled.div`
 //   display: flex;
 //   justify-content: center;
@@ -52,8 +53,6 @@ import { ContentDiv, WrapperDiv, Form, H4, Label, Button } from "./Signup"
 //   margin-top: 15%;
 // `;
 
-
-
 /////////////////////LoginForm function/////////////////
 const LoginForm = (props) => {
   const [logInData, setLogInData] = useState({ username: "", password: "" });
@@ -73,16 +72,17 @@ const LoginForm = (props) => {
         window.localStorage.setItem("token", res.data.token);
         setLogInData({ username: "", password: "" });
         props.getID(res.data.id);
+        console.log("user id in login", res.data.id);
         props.history.push("/add");
       })
       .catch((err) => console.log(err, logInData));
   };
 
   return (
-
     <ContentDiv>
       <WrapperDiv>
         <Form onSubmit={onSubmit}>
+
 
         {/* <div className="loginForm"> */}
 
@@ -108,10 +108,10 @@ const LoginForm = (props) => {
           />
           <Button type="submit">Next</Button>
           {/* </div> */}
+
         </Form>
       </WrapperDiv>
     </ContentDiv>
-        
   );
 };
 const mapStateToProps = (state) => {

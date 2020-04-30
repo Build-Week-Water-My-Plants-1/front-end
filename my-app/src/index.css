@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.dash{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+a,a:link,a:visited{
+  color:white;
+  text-decoration: none;
+}
+
+a:hover{
+  color: rgb(250, 237, 222);
+}
+.home{
+  padding-left: 61px;
+}
+.cards-container{
+  display: flex;
+}

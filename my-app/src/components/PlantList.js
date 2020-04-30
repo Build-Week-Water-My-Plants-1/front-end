@@ -1,14 +1,30 @@
-
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { getID, getPlantID } from "../action";
 import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
-const PlantList = (props) => {
+import styled from "styled-components";
+import ReactDOM from "react-dom";
+import {
+  CardWrapper,
+  CardHeader,
+  CardHeading,
+  CardBody,
+  CardIcon,
+  CardFieldset,
+  CardInput,
+  CardOptionsItem,
+  CardOptions,
+  CardOptionsNote,
+  CardButton,
+  CardLink,
+} from "./Card";
+import Button from "./Header";
 
+const PlantList = (props) => {
   const { push } = useHistory();
-  
+
   const handleSubmit = () => {
     props.getPlantID(props.plant.id);
     push("./update");
@@ -21,11 +37,15 @@ const PlantList = (props) => {
     axiosWithAuth()
       .delete(`/api/${props.id}/plants/${props.plant.id}`)
       .then((res) => {
-        // console.log("res from delete", res.config.url);
+        console.log("res from delete", res);
         // console.log(res.config.url.includes(props.plant.id));
+        // props.plantList.filter(
+        //   (plant) => console.log(plant.id)
+        // );
         const newList = props.plantList.filter(
           (plant) => !res.config.url.includes(plant.id)
         );
+        //console.log(newList)
         props.setPlantList(newList);
         push("/dashboard");
       })
@@ -34,17 +54,21 @@ const PlantList = (props) => {
       });
   };
 
+  //DASHBOARD STYLING
+
   return (
-    <div>
-      <h1>Name: {props.plant.common_name}</h1>
-      <h1>H2O frequency: {props.plant.h2o_frequency}</h1>
-      <h1>Species: {props.plant.scientific_name}</h1>
-      <button onClick={handleSubmit}>Edit</button>
-      <button onClick={deletePlant}>Delete</button>
+    <div className="cards-container">
+      <CardWrapper>
+        <h2>{props.plant.common_name}</h2>
+        <CardBody>-Maintenance-</CardBody> <h2>{props.plant.h2o_frequency}</h2>
+        <CardBody>-Species-</CardBody> <h2>{props.plant.scientific_name}</h2>
+        <CardButton onClick={handleSubmit}>Edit</CardButton>
+        <br></br>
+        <CardButton onClick={deletePlant}>Delete</CardButton>
+      </CardWrapper>
     </div>
   );
 };
-
 
 const mapStateToProps = (state) => {
   //console.log("map at plant list:", state[0].plantID);
