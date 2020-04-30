@@ -57,7 +57,7 @@ const AddPlant = (props) => {
     id: Date.now(),
     common_name: "",
     scientific_name: "",
-    h2o_frequency: "2",
+    h2o_frequency: "1",
   });
   const { push } = useHistory();
 
