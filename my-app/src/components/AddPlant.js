@@ -147,6 +147,7 @@ const AddPlant = (props) => {
   };
 
   return (
+    <div className="login-signupForm"> 
     <WrapperDiv>
       <Form>
         <h4>Looking good!</h4>
@@ -194,6 +195,7 @@ const AddPlant = (props) => {
         </SkipButton>
       </Form>
     </WrapperDiv>
+    </div>
   );
 };
 const mapStateToProps = (state) => {

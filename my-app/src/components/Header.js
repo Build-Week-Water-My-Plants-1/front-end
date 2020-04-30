@@ -42,7 +42,7 @@ const Header = () => {
   return (
     <Nav>
       <LinksDiv>
-        <h1>PlantH2o</h1>
+        <h1>Oxygen</h1>
         <a
           href="https://angry-goodall-235971.netlify.app/"
           target="_blank"
