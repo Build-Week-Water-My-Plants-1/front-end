@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getPlantID, getID } from "../action/index";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
+import { ContentDiv, WrapperDiv, Form, H4, Label, Button } from "./Signup";
 
 const initialItem = {
   common_name: "",
@@ -44,36 +45,39 @@ const UpdatePlate = (props) => {
   };
 
   return (
-    <div>
-      <h1>Update Plants</h1>
-      <form>
-        <input
-          type="text"
-          name="common_name"
-          onChange={changeHandler}
-          placeholder="name"
-          value={plant.common_name}
-        />
-        <br />
-        <input
-          type="number"
-          name="h2o_frequency"
-          onChange={changeHandler}
-          placeholder="frequency"
-          value={plant.h2o_frequency}
-        />
-        <div className="baseline" />
-        <input
-          type="text"
-          name="scientific_name"
-          onChange={changeHandler}
-          placeholder="scientific_name"
-          value={plant.scientific_name}
-        />
-        <div className="baseline" />
-        <button onClick={handleSubmit}>Done</button>
-      </form>
-    </div>
+    <ContentDiv>
+      <WrapperDiv>
+        <h3>Update Plants</h3>
+        <Form>
+          <Label htmlFor="common_name">Name</Label>
+          <input
+            type="text"
+            name="common_name"
+            onChange={changeHandler}
+            placeholder="name"
+            value={plant.common_name}
+          />
+          <Label htmlFor="h2o_frequency">Frequency</Label>
+          <input
+            type="number"
+            name="h2o_frequency"
+            onChange={changeHandler}
+            placeholder="frequency"
+            value={plant.h2o_frequency}
+          />
+          <Label htmlFor="scientific_name">Scientific Name</Label>
+          <input
+            type="text"
+            name="scientific_name"
+            onChange={changeHandler}
+            placeholder="scientific_name"
+            value={plant.scientific_name}
+          />
+
+          <Button onClick={handleSubmit}>Done</Button>
+        </Form>
+      </WrapperDiv>
+    </ContentDiv>
   );
 };
 const mapStateToProps = (state) => {

@@ -1,7 +1,11 @@
-.App {
-  text-align: center;
+.login-signupForm{
+  height: 100vh;
+  background-image: url('./components/images/plantbackground.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
-
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +39,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

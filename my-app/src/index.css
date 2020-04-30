@@ -16,6 +16,7 @@ code {
 .dash{
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 a,a:link,a:visited{
@@ -28,5 +29,11 @@ a:hover{
 }
 .home{
   padding-left: 61px;
+}
+.cards-container{
+  display: flex;
+}
 
+.dashboard{
+  text-align: center;
 }

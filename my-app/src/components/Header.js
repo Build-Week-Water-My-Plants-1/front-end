@@ -16,22 +16,20 @@ const LinksDiv = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-left: 10%;
+  margin-left: 7%;
 `;
 
 const SignUpDiv = styled.div`
   display: flex;
 `;
 
-
-
 export const Button = styled.button`
   background-color: transparent;
   color: white;
   font-family: "Nunito Sans", sans-serif;
-  font-size: 0.8rem;
+  font-size: 1rem;
   border: none;
-  margin-right: 20px;
+  margin-right: 40px;
 `;
 
 const StyledLink = styled(Link)`
@@ -42,13 +40,12 @@ const StyledLink = styled(Link)`
 
 const Header = () => {
   return (
-
     <Nav>
       <LinksDiv>
-
-        <h1>Plant2o</h1>
+        <h1>PlantH2o</h1>
         <a
           href="https://angry-goodall-235971.netlify.app/"
+          target="_blank"
           className="nav-link home"
         >
           Home
@@ -56,7 +53,6 @@ const Header = () => {
         <StyledLink to="#" className="nav-link">
           About
         </StyledLink>
-
       </LinksDiv>
       <SignUpDiv>
         <Button id="signup">
