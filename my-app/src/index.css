@@ -30,10 +30,17 @@ a:hover{
 .home{
   padding-left: 61px;
 }
-.cards-container{
+.center-box{
+  margin-top: 50px;
   display: flex;
+  justify-content: center;
 }
 
 .dashboard{
   text-align: center;
+}
+.center-skip{
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
 }
