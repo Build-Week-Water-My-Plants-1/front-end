@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import styled from "styled-components";
+import img from "./images/plantbackground.jpg"
 import { connect } from "react-redux";
 import { getID } from "../action";
 
 /////////////Styling/////////////////
+const ContentDiv = styled.div`
+  background-image: img;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+`;
+
 const WrapperDiv = styled.div`
   width: 20%;
   height: 80%;
@@ -37,11 +45,10 @@ const Label = styled.label`
 const Button = styled.button`
   height: 2rem;
   font-size: 0.9rem;
-  background-color: #235b2d;
+  background-image: ;
   background: rgba(0.75);
   color: white;
-  border-radius: 4px;
-  margin-top: 15%;
+  margin-right: 20px;
 `;
 
 
@@ -71,10 +78,13 @@ const LoginForm = (props) => {
   };
 
   return (
-    <WrapperDiv>
-      <Form onSubmit={onSubmit}>
+
+    <ContentDiv>
+      <WrapperDiv>
+        <Form onSubmit={onSubmit}>
 
         <div className="loginForm">
+
           <h4>Welcome back!</h4>
           <H4>Log into your account</H4>
           <Label htmlFor="username">Username</Label>
@@ -96,10 +106,11 @@ const LoginForm = (props) => {
             onChange={handleChanges}
           />
           <Button type="submit">Next</Button>
-        </div>
-
-      </Form>
-    </WrapperDiv>
+          </div>
+        </Form>
+      </WrapperDiv>
+    </ContentDiv>
+        
   );
 };
 const mapStateToProps = (state) => {

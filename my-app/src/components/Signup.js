@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import styled from "styled-components";
-// import { connect } from "react-redux";
-// import { getID } from "../action";
-// import './index.css';
 
 /////////////Styling/////////////////
 const WrapperDiv = styled.div`
@@ -80,6 +77,8 @@ const SignUp = (props) => {
   };
 
   return (
+
+
     <WrapperDiv>
       <Form onSubmit={handleSubmit}>
         <h4>Let's get started!</h4>
